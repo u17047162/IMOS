@@ -1,16 +1,12 @@
 import { user, employee } from './../../services/service.service';
-import { Employee } from './../../employee/employee.component';
+//import { Employee } from './../../employee/employee.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService, userrole, } from 'src/app/services/service.service';
 import { CommonModule } from '@angular/common'
 import { HttpEventType } from '@angular/common/http';
-
-export interface UserRole {
-  userrole: number,
-  description: string
-}
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-user',
@@ -19,98 +15,69 @@ export interface UserRole {
 })
 export class AddUserComponent implements OnInit {
 
-  public addForm!: FormGroup;
-
-  listOfUserRoles: any;
-  data: userrole[] = [];
-  employee: employee[] = [];
+  public addForm: FormGroup;
+  alert: boolean = false;
+  roleList: userrole[] = [];
+  employeeList: employee[] = [];
   posts: any;
 
   constructor(private fb: FormBuilder,
-    private _serviceManage: ServiceService,
-    private router: Router) {
+    private _service: ServiceService,
+    private route: Router,private _snackbar: MatSnackBar) {
   }
 
   ngOnInit(): void {
-    this.buildAddForm();
-
-    this._serviceManage.getUserRole().subscribe(x => {
-      this.data = x;
-      console.log(this.data)
-      this.posts = x
-    });
-
-
-    this._serviceManage.getEmployees().subscribe(y => {
-      this.employee = y;
-      console.log(this.employee)
-
-    })
+    this.buildAddForm(); 
   }
 
   private buildAddForm() {
     this.addForm = this.fb.group({
-      userRole: ['', [Validators.required]],
-      userName: ['', [Validators.required]],
-      userPassword: ['', [Validators.required]],
-      employeeId: ['', [Validators.required]]
+      employeeId: ['', [Validators.required]],
+      username: ['', [Validators.required]],
+      id: ['', [Validators.required]]
+    })
+
+    this._service.getUserRole().subscribe(data=> {
+      this.roleList = data;
+      console.log(data);
     });
-  }
-
-  onAddSubmit(): void {
-
-    if (this.addForm.valid) {
-
-      /*  this._serviceManage.addUser(this.addForm.value)*/
-
-      this._serviceManage.addUser(this.addForm.value)
-        .subscribe(event => {
-          if (event.type === HttpEventType.Response) {
-            this.router.navigateByUrl('/user')
-            console.log(this.addForm.value)
-          }
-        },
-          error => {
-            console.log("error did not send data");
-            console.log(this.addForm.value)
-          })
-
-      return console.log()
-
-    };
-    /* this._serviceManage.getUserRole().subscribe((data:any)=>{
-       this.listOfUserRoles=data;
-       console.log(data);
-     });*/
-
-
-  }
-
-  createUser() {
-    const user: user = this.addForm.value;
-    this._serviceManage.addUser(user)
-
-  }
-
-
-  private getUserRoles() {
-    this._serviceManage.getUserRole()
-  }
-
-  changeUserRole(e: any) {
-
-    console.log(e.target.value)
-    this.addForm.patchValue({
-      userRole1: e.target.value
+    this._service.getEmployees().subscribe(data => {
+      this.employeeList = data;
     })
   }
 
-  changeEmployee(e: any) {
-    this.addForm.patchValue({
-      employeeId: e.target.value
-    })
+  addUser(){
+        // add validation and "are you sure to add user notification"
+    if(this.addForm.valid){
+      let payload:any = {};
+      payload['EmployeeId'] = this.addForm.get('employeeId')?.value;
+      payload['Username'] = this.addForm.get('username')?.value;
+      payload['UserroleId'] = this.addForm.get('id')?.value;
+      console.log(payload);
+    this._service.registerUser(payload)
+       .subscribe(res => {
+        if (confirm('Are you sure you want to Add this User ?')) {
+          this._snackbar.open("Success, you have Add a User!", 'OK', {
+            duration: 3000,
+            verticalPosition: 'bottom',
+          });
+       
+        }
+        else{
+          this._snackbar.open("Unsuccessful", 'OK', {
+            duration: 3000,
+            verticalPosition: 'bottom',
+          });
+        }
+      });
+      } 
+    }
+ 
+  back(){
+    this.route.navigateByUrl("user")
   }
-
-
+  closeAlert() {
+    this.alert = false;
+  }
 }
 

@@ -5,60 +5,120 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using IMOSApi.Dtos.Incident;
 namespace IMOSApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class IncidentController : ControllerBase
     {
-        [HttpGet("GetIncidents")]
-        public IEnumerable<Incident> Retrieve()
+        private readonly IMOSContext _dbContext;
+        public IncidentController(IMOSContext dbContext)
         {
-            using (var context = new IMOSContext())
-            {
-                return context.Incidents.ToList();
-            }
-        }
-        [HttpGet("GetIncident/{id}")]
-        public IEnumerable<Incident> Get(int id)
-        {
-            using (var context = new IMOSContext())
-            {
-                IEnumerable<Incident> tmp = context.Incidents.Where(emp => emp.IncidentId == id).ToList();
-                return tmp;
-            }
-        }
-        [HttpPost("CreateIncident")]
-        public IActionResult Create([FromBody] Incident Incident)
-        {
-            using (var context = new IMOSContext())
-            {
-                context.Incidents.Add(Incident);
-                context.SaveChanges();
-                return Ok();
-            }
+            _dbContext = dbContext;
         }
 
+
+
+        [HttpGet("GetAllIncidents")]
+        public ActionResult<IEnumerable<GetIncidentsDto>> GetAllIncidents()
+        {
+            var recordInDb = _dbContext.Incidents
+                .Select( item => new GetIncidentsDto()
+                {
+                    IncidentId = item.IncidentId,
+                    ProjectId = item.ProjectId,
+                    Description = item.Description,
+                    Date = item.Date.ToString("F"),
+                }).ToList();
+
+            return recordInDb;
+        }
+
+
+
+        [HttpGet("GetIncidentBYProject/{id}")]
+        public List<Incident> GetIncidentBYProject(int id)
+        {
+            var recordInDb = _dbContext.Incidents
+                .Where(item => item.ProjectId == id).ToList();
+
+            return recordInDb;
+
+        }
+
+        [HttpPost("AddIncident/{Id}")]
+        public async Task<ActionResult<Request>> AddIncident(AddOrUpdataIncidentDto model, int Id)
+        {
+            var message = "";
+            var recordInDb = await _dbContext.Projects.FindAsync(Id);
+            if (recordInDb == null)
+            {
+                return NotFound();
+            }
+            else if (ModelState.IsValid)
+            {
+
+                var newRecord = new Incident()
+                {
+                   ProjectId = Id,
+                   Description = model.Description,
+                   Date = DateTime.Now,
+
+                };
+
+                _dbContext.Incidents.Add(newRecord);
+                _dbContext.SaveChanges();
+                return Ok();
+            }
+
+
+            message = "Something went wrong on your side.";
+            return BadRequest(new { message });
+        }
+
+
         [HttpPut("UpdateIncident/{Id}")]
-        public void Update([FromBody] Incident Incident, [FromRoute] int Id)
+        public IActionResult UpdateIncident(AddOrUpdataIncidentDto model, int Id)
         {
-            using (var context = new IMOSContext())
+            if (ModelState.IsValid)
             {
-                var clie = context.Incidents.Where(clie => clie.IncidentId == Id).ToList().FirstOrDefault();
-                //emp.
-                context.SaveChanges();
+                var recordInDb = _dbContext.Incidents.FirstOrDefault(item => item.IncidentId == Id);
+                if (recordInDb == null)
+                {
+                    return NotFound();
+                }
+
+                recordInDb.Description = model.Description;
+
+
+
+                _dbContext.SaveChanges();
+                return Ok();
             }
+
+            var message = "Something went wrong on your side.";
+            return BadRequest(new { message });
         }
+
+
         [HttpDelete("DeleteIncident/{Id}")]
-        public void Delete(int id)
+        public async Task<ActionResult<Incident>> DeleteIncident(int Id)
         {
-            using (var context = new IMOSContext())
+            var recordInDb = await _dbContext.Incidents.FindAsync(Id);
+
+            if (recordInDb == null)
             {
-                var clie = context.Incidents.Where(clie => clie.IncidentId == id).ToList().FirstOrDefault(); ;
-                context.Incidents.Remove(clie);
-                context.SaveChanges();
+                return NotFound();
             }
+
+            _dbContext.Incidents.Remove(recordInDb);
+            await _dbContext.SaveChangesAsync();
+
+            return Ok();
+
         }
+
     }
+
 }

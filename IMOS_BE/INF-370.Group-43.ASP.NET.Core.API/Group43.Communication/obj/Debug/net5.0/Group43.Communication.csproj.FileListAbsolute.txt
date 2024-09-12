@@ -22,3 +22,15 @@ C:\Users\User\Documents\GitHub\2022.INF-370.Group43.ASP.NET.Core.API\INF-370.Gro
 C:\Users\User\Documents\GitHub\2022.INF-370.Group43.ASP.NET.Core.API\INF-370.Group-43.ASP.NET.Core.API\Group43.Communication\obj\Debug\net5.0\Group43.Communication.dll
 C:\Users\User\Documents\GitHub\2022.INF-370.Group43.ASP.NET.Core.API\INF-370.Group-43.ASP.NET.Core.API\Group43.Communication\obj\Debug\net5.0\ref\Group43.Communication.dll
 C:\Users\User\Documents\GitHub\2022.INF-370.Group43.ASP.NET.Core.API\INF-370.Group-43.ASP.NET.Core.API\Group43.Communication\obj\Debug\net5.0\Group43.Communication.pdb
+C:\Users\User\Documents\GitHub\Team-43-IMOS\Team-43-IMOS\IMOS_BE\INF-370.Group-43.ASP.NET.Core.API\Group43.Communication\bin\Debug\net5.0\Group43.Communication.deps.json
+C:\Users\User\Documents\GitHub\Team-43-IMOS\Team-43-IMOS\IMOS_BE\INF-370.Group-43.ASP.NET.Core.API\Group43.Communication\bin\Debug\net5.0\Group43.Communication.dll
+C:\Users\User\Documents\GitHub\Team-43-IMOS\Team-43-IMOS\IMOS_BE\INF-370.Group-43.ASP.NET.Core.API\Group43.Communication\bin\Debug\net5.0\ref\Group43.Communication.dll
+C:\Users\User\Documents\GitHub\Team-43-IMOS\Team-43-IMOS\IMOS_BE\INF-370.Group-43.ASP.NET.Core.API\Group43.Communication\bin\Debug\net5.0\Group43.Communication.pdb
+C:\Users\User\Documents\GitHub\Team-43-IMOS\Team-43-IMOS\IMOS_BE\INF-370.Group-43.ASP.NET.Core.API\Group43.Communication\obj\Debug\net5.0\Group43.Communication.csproj.AssemblyReference.cache
+C:\Users\User\Documents\GitHub\Team-43-IMOS\Team-43-IMOS\IMOS_BE\INF-370.Group-43.ASP.NET.Core.API\Group43.Communication\obj\Debug\net5.0\Group43.Communication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Documents\GitHub\Team-43-IMOS\Team-43-IMOS\IMOS_BE\INF-370.Group-43.ASP.NET.Core.API\Group43.Communication\obj\Debug\net5.0\Group43.Communication.AssemblyInfoInputs.cache
+C:\Users\User\Documents\GitHub\Team-43-IMOS\Team-43-IMOS\IMOS_BE\INF-370.Group-43.ASP.NET.Core.API\Group43.Communication\obj\Debug\net5.0\Group43.Communication.AssemblyInfo.cs
+C:\Users\User\Documents\GitHub\Team-43-IMOS\Team-43-IMOS\IMOS_BE\INF-370.Group-43.ASP.NET.Core.API\Group43.Communication\obj\Debug\net5.0\Group43.Communication.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\Team-43-IMOS\Team-43-IMOS\IMOS_BE\INF-370.Group-43.ASP.NET.Core.API\Group43.Communication\obj\Debug\net5.0\Group43.Communication.dll
+C:\Users\User\Documents\GitHub\Team-43-IMOS\Team-43-IMOS\IMOS_BE\INF-370.Group-43.ASP.NET.Core.API\Group43.Communication\obj\Debug\net5.0\ref\Group43.Communication.dll
+C:\Users\User\Documents\GitHub\Team-43-IMOS\Team-43-IMOS\IMOS_BE\INF-370.Group-43.ASP.NET.Core.API\Group43.Communication\obj\Debug\net5.0\Group43.Communication.pdb

@@ -1,0 +1,132 @@
+
+<div  id="htmlData" #htmlData>
+
+  <mat-card>
+
+
+
+    <mat-card-content>
+      <div class="container">
+        <img src="../../assets/images/Logo.png" class="img-fluid" alt="">  <br>
+        <p>
+          <label for="" style="font-size: 38px;"> Approved Material Request For Project</label>
+          <br>
+          <br>
+          <label for="" style="font-size: 28px;">Date: {{myDate | date:'medium'}}</label>
+          <br>
+          <br>
+          <label for="" style="font-size: 18px;">Created by: Hloni</label>
+
+        </p>
+
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+  <br> <br>
+
+
+
+  <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px">
+  <br> <br>
+
+
+
+  <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)"  class="matcard" >
+  <div  >
+
+    <div   >
+    <div *ngIf = "chartsLoaded">
+
+
+      <div    >
+        <div  >
+          <div >
+            <canvas baseChart
+            [data] = "ApprovedCountData"
+            [type]="'bar'"
+            [options] = "ApprovedCountOptions"
+            >
+
+            </canvas>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    </div>
+    </div>
+  </mat-card>
+
+    <br>
+
+
+    <mat-card >
+  <div  >
+
+    <div >
+    <div *ngIf = "chartsLoaded">
+
+
+      <div    >
+        <div  >
+          <div  >
+            <canvas baseChart
+            [data] = "MaterialCompData"
+            [type]="'pie'"
+            [options] = "MaterialCompOptions"
+            >
+
+            </canvas>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    </div>
+    </div>
+  </mat-card>
+
+<br>
+
+  <mat-card  fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+
+  <div class="tableContainer">
+  <div  class="table table-bordered"  *ngFor="let item of tableData; let j = index;">
+
+    <h1 >Material Name: {{item.MaterialName}}</h1>
+    <h2 >Average Quantity Requested: {{item.AverageQuantityRequested}}</h2>
+    <h2 >Total Quantity Requested: {{item.ToTalQuantity}}</h2>
+
+    <table  id="testing{{j}}" >
+      <tr>
+        <th>Requested Date</th>
+        <th>Approved Date </th>
+        <th>Requested Quantity </th>
+    </tr>
+
+      <tr  *ngFor="let rows of item.MaterialRequests">
+        <th>{{rows.RequestDate}}</th>
+        <th>{{rows.ApproveDate}} </th>
+        <th>{{rows.requestQuantity}}</th>
+    </tr>
+    </table>
+  <br> <br>
+
+  </div>
+
+  </div>
+  <h1 *ngIf="grandAverage" class="grand">Grand Average Quantity per Request : {{grandAverage}}</h1>
+
+  </mat-card>
+
+  </div>
+  <br>
+
+
+</div>
+
+<br>
+  <button class="CheckoutBut" (click)="downloadPDF()"  mat-flat-button color="primary"> Download PDF</button>

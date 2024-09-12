@@ -1,0 +1,29 @@
+<div class="main">
+
+    <h1> Add New Vehicle Brand</h1>
+</div>
+<form [formGroup]="addBrandFormGroup" class="form-container">
+    <mat-card>
+        <mat-card-content>
+            <div class="row">
+
+                <mat-form-field class="full-width">
+                    <input [(ngModel)]='Name' matInput placeholder="Name" name="Name" type="text" formControlName="Name">
+                  </mat-form-field>
+                <mat-error *ngIf="formdet['Name'].touched && formdet['Name'].invalid">
+                <mat-error *ngIf="formdet['Name'].errors?.['required'] && formdet['Name'].dirty">Name is required</mat-error>
+                <mat-error *ngIf="formdet['Name'].errors?.['pattern'] && formdet['Name'].dirty">Please enter a letter only name</mat-error>
+                </mat-error>
+            </div>
+            <div class="btn">
+                <button mat-raised-button color="primary" type="button" (click)="AddBrand(this.data.id)"
+                    [disabled]="!addBrandFormGroup.valid">Add
+                </button>
+                &nbsp;
+                <button (click)="back()" mat-raised-button color="warn">Back</button>
+            </div>
+
+        </mat-card-content>
+
+    </mat-card>
+</form>

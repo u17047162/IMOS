@@ -1,1 +1,80 @@
-<p>update-supplier works!</p>
+<app-header></app-header>
+
+<div class="main">
+
+    <h1>Update Supplier</h1>
+
+    <form [formGroup]="updateForm" class="addSupplier" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label> Supplier type</mat-label>
+                <mat-select formControlName="suppliertypeId">
+                    <mat-option *ngFor="let type of Suppliertypes" [value]="type.id">
+                        {{type.name}}
+                    </mat-option>
+                </mat-select>
+                
+                <mat-error *ngIf="formdet['suppliertypeId'].touched && formdet['suppliertypeId'].invalid">
+                    <mat-error *ngIf="formdet['suppliertypeId'].errors?.['required'] && formdet['suppliertypeId'].dirty">Supplier type is required</mat-error>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Full Name</mat-label>
+                <input matInput placeholder="Jack Trade" #nameInput formControlName="name">
+                <mat-error *ngIf="formdet['name'].touched && formdet['name'].invalid">
+                    <mat-error *ngIf="formdet['name'].errors?.['required'] && formdet['name'].dirty">Name is required
+                    </mat-error>
+                    <mat-error *ngIf="formdet['name'].errors?.['pattern'] && formdet['name'].dirty">Please enter a
+                        letter only name</mat-error>
+                    <mat-error *ngIf="formdet['name'].errors?.['maxlength'] && formdet['name'].dirty">25 Characters
+                        maximum is required for a full name</mat-error>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Type Address</mat-label>
+                <input matInput placeholder="62 Part Street Pretoria Gauteng" #nameInput formControlName="address">
+                <mat-error *ngIf="formdet['address'].touched && formdet['address'].invalid">
+                    <mat-error *ngIf="formdet['address'].errors?.['required'] && formdet['address'].dirty">Address is
+                        required</mat-error>
+                    <mat-error *ngIf="formdet['address'].errors?.['minlength'] && formdet['address'].dirty">10
+                        Characters minimum is required for address</mat-error>
+                    <mat-error *ngIf="formdet['address'].errors?.['maxlength'] && formdet['address'].dirty">40
+                        Characters maximum is required for address</mat-error>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="standard">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="email" #nameInput>
+                <mat-error *ngIf="formdet['email'].touched && formdet['Email'].invalid">
+                    <mat-error *ngIf="formdet['email'].errors?.['required'] && formdet['email'].dirty">Email is required
+                    </mat-error>
+                    <mat-error *ngIf="formdet['email'].errors?.['email'] && formdet['email'].dirty">Please enter a valid
+                        email address</mat-error>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Contact</mat-label>
+                <input matInput placeholder="0856987700" formControlName="contactnumber" #nameInput>
+                <mat-error *ngIf="formdet['contactnumber'].touched && formdet['contactnumber'].invalid">
+                    <mat-error *ngIf="formdet['contactnumber'].errors?.['required'] && formdet['contactnumber'].dirty">Contact
+                      Number is required</mat-error>
+                    <mat-error *ngIf="formdet['contactnumber'].errors?.['pattern'] && formdet['contactnumber'].dirty">Please enter
+                      a 10 digit mobile number</mat-error>
+                  </mat-error>
+            </mat-form-field>
+
+            <div class="btn">
+
+                <button mat-raised-button color="primary" [disabled]="!updateForm.valid">Update</button>
+                &nbsp;
+                <button (click)="back()" mat-raised-button color="warn">Back</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>

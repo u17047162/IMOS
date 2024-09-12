@@ -1,0 +1,214 @@
+<app-header></app-header>
+
+<link rel="stylesheet"
+    href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<h2 style="margin-left:45% ;font-size: 30px;">Reports</h2>
+
+<mat-grid-list cols="4" rowHeight="1:1" [gutterSize]="'10px'">
+
+  <mat-grid-tile>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>Project Material Request Report</mat-card-title>
+
+        </mat-card-header>
+
+        <form  [formGroup]="form" >
+          <mat-form-field appearance="outline" class="control-w">
+            <mat-label>Select Status</mat-label>
+            <mat-select formControlName="name"  (change)="ChangeMaterialRequestStatus($event)"  >
+              <mat-option *ngFor="let item of materialRequestData" [value] = "item.id">
+                  {{item.name}}
+              </mat-option>
+            </mat-select>
+
+          </mat-form-field>
+        </form>
+
+        <button class="CheckoutBut" (click)="openDialog()"  mat-flat-button color="primary">Generate report</button>
+
+    </mat-card>
+  </mat-grid-tile>
+
+
+  <mat-grid-tile>
+    <mat-card class="example-card">
+      <mat-card-header>
+          <mat-card-title>Project Material <br> Request Count Report</mat-card-title>
+
+      </mat-card-header>
+
+      <button class="CheckoutBut" (click)="openRequestCountReportViewDialog()"  mat-flat-button color="primary">Generate report</button>
+
+  </mat-card>
+</mat-grid-tile>
+
+<mat-grid-tile>
+  <mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Project Material <br>Request Report</mat-card-title>
+
+    </mat-card-header>
+    <form  [formGroup]="projectForm" >
+      <mat-form-field appearance="outline" class="control-w">
+        <mat-label>Select Project Name</mat-label>
+        <mat-select formControlName="name"  (change)="ChangeProjectName($event)"  >
+          <mat-option *ngFor="let item of ProjectData" [value] = "item.id">
+              {{item.name}}
+          </mat-option>
+        </mat-select>
+
+      </mat-form-field>
+    </form>
+
+
+    <button class="CheckoutBut" (click)="openApprovedReportViewDialog()"  mat-flat-button color="primary">Generate report</button>
+
+</mat-card>
+</mat-grid-tile>
+
+<mat-grid-tile>
+  <mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Project Management Report</mat-card-title>
+
+    </mat-card-header>
+    <form  [formGroup]="projectForm" >
+      <mat-form-field appearance="outline" class="control-w">
+        <mat-label>Select Project Name</mat-label>
+        <mat-select formControlName="name"  (change)="ChangeProjectName($event)"  >
+          <mat-option *ngFor="let item of ProjectData" [value] = "item.id">
+              {{item.name}}
+          </mat-option>
+        </mat-select>
+
+      </mat-form-field>
+    </form>
+
+
+    <button class="CheckoutBut" (click)="openProjectManagementDialog()"  mat-flat-button color="primary">Generate report</button>
+
+</mat-card>
+</mat-grid-tile>
+
+<mat-grid-tile>
+
+  <mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Tasks per Project Report</mat-card-title>
+
+    </mat-card-header>
+
+    <form  [formGroup]="projectForm" >
+      <mat-form-field appearance="outline" class="control-w">
+        <mat-label>Select Project Name</mat-label>
+        <mat-select formControlName="name"  (change)="ChangeProjectName($event)"  >
+          <mat-option *ngFor="let item of ProjectData" [value] = "item.id">
+              {{item.name}}
+          </mat-option>
+        </mat-select>
+
+      </mat-form-field>
+    </form>
+
+    <button class="CheckoutBut" (click)="openTaskPerProjectDialog()"  mat-flat-button color="primary">Generate report</button>
+
+</mat-card>
+
+
+</mat-grid-tile>
+
+<mat-grid-tile>
+  <mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>List of Vehicles Report</mat-card-title>
+
+    </mat-card-header>
+
+    <button class="CheckoutBut" (click)="openRequestCountReportViewDialog()"  mat-flat-button color="primary">Generate report</button>
+
+</mat-card>
+</mat-grid-tile>
+
+<mat-grid-tile>
+  <mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>All Request Report</mat-card-title>
+
+    </mat-card-header>
+
+    <button class="CheckoutBut" (click)="openALlRequestDialog()"  mat-flat-button color="primary">Generate report</button>
+
+</mat-card>
+</mat-grid-tile>
+
+<mat-grid-tile>
+
+  <mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Tasks between Dates Report</mat-card-title>
+
+    </mat-card-header>
+
+    <form  [formGroup]="form" >
+      <mat-form-field appearance="outline" class="control-w">
+        <mat-label>Select Project Name</mat-label>
+        <mat-select formControlName="name"  (change)="ChangeProjectName($event)"  >
+          <mat-option *ngFor="let item of ProjectData" [value] = "item.id">
+              {{item.name}}
+          </mat-option>
+        </mat-select>
+
+      </mat-form-field>
+    </form>
+
+    <button class="CheckoutBut" (click)="openDialog()"  mat-flat-button color="primary">Generate report</button>
+
+</mat-card>
+
+
+
+</mat-grid-tile>
+
+<mat-grid-tile>
+  <mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Incidents Report</mat-card-title>
+
+    </mat-card-header>
+
+    <button class="CheckoutBut" (click)="openALLINCICENTSDialog()"  mat-flat-button color="primary">Generate report</button>
+
+</mat-card>
+</mat-grid-tile>
+
+<mat-grid-tile>
+
+  <mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title> Incidents per Project Report</mat-card-title>
+
+    </mat-card-header>
+
+    <form  [formGroup]="projectForm" >
+      <mat-form-field appearance="outline" class="control-w">
+        <mat-label>Select Project Name</mat-label>
+        <mat-select formControlName="name"  (change)="ChangeProjectName($event)"  >
+          <mat-option *ngFor="let item of ProjectData" [value] = "item.id">
+              {{item.name}}
+          </mat-option>
+        </mat-select>
+
+      </mat-form-field>
+    </form>
+
+    <button class="CheckoutBut" (click)="openIncidentPerProjectDialog()"  mat-flat-button color="primary">Generate report</button>
+
+</mat-card>
+
+
+</mat-grid-tile>
+
+</mat-grid-list>
+

@@ -6,13 +6,43 @@
 
 <mat-toolbar class="toolbar">
   <mat-toolbar-row>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/employee">Employee</button>
+      <button mat-menu-item routerLink="/user">User</button>
+      <button mat-menu-item routerLink="/material">Material</button>
+      <button mat-menu-item routerLink="/supplier">Supplier</button>
+      <button mat-menu-item routerLink="/vehicle">Vehicle</button>
+      <button mat-menu-item routerLink="/incident">Incident</button>
+      <button mat-menu-item routerLink="/project">Project</button>
+      <button mat-menu-item routerLink="/Task">Task</button>
+      <button mat-menu-item routerLink="/client">Client</button>
+      <button mat-menu-item routerLink="/warehouse">Warehouse</button>
+      <button mat-menu-item routerLink="/equipment">Equipment</button>
+      <button mat-menu-item routerLink="/reports">Reports</button>
+      <button mat-menu-item routerLink="/saftyChecklist">Safty Checklist</button>
+
+    </mat-menu>
     <span>IMOS</span>
     <span class="example-spacer"></span>
+    <button mat-mini-fab primary class="example-icon" (click)="help()">
+      <mat-icon>help</mat-icon>
+    </button>
+    &nbsp;
+    <button mat-mini-fab primary class="example-icon" (click)="home()">
+      <mat-icon>house</mat-icon>
+    </button>
+    &nbsp;
     <button (click)="UserDetails()" class="example-icon" mat-mini-fab primary>
       <mat-icon>face</mat-icon>
+    </button>
+    &nbsp;
+    <button class="example-icon" mat-mini-fab primary>
+      <a href="https://chasenel.github.io/IMOS.github.io/">
+        <mat-icon>help</mat-icon>
+      </a>
     </button>
   </mat-toolbar-row>
 </mat-toolbar>

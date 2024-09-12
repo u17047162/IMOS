@@ -1,0 +1,35 @@
+<app-header></app-header>
+
+<button class="btnBack" mat-raised-button color="warn" routerLink="/saftyChecklistCatagory">Back</button>
+
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success !</strong> Category Added Successfully
+    <button mat-button color="warn" (click)="closeAlert()" class="close" data-dismiss="alert" aria-label="Close">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<form [formGroup]="SafetyCategoryFrm" class="form-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Add New Category Type</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Category  Name" name="categoryName"
+                        formControlName="categoryName">
+                </mat-form-field>
+                <mat-error *ngIf="hasError('categoryName', 'required')"></mat-error>
+                <mat-card-actions>
+                    <div class="btn">
+                        <button mat-raised-button color="primary" type="button" (click)="addCategoryType()"
+                            [disabled]="!SafetyCategoryFrm.valid">Add
+                        </button>
+                        &nbsp;
+                        <button mat-raised-button color="warn" type="button" (click)="back()">Back</button>
+                    </div>
+                </mat-card-actions>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</form>

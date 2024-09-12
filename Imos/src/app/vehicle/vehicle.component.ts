@@ -1,52 +1,86 @@
-import { ServiceService, vehicle, vehicletype, user } from './../services/service.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { UnassignedVehicleViewComponent } from './unassigned-vehicle-view/unassigned-vehicle-view.component';
+import { ServiceService, vehicle, vehicletype, user, vehiclemake, vehiclemodel } from './../services/service.service';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {AddVehicleComponent} from './add-vehicle/add-vehicle.component';
+import { Observable } from 'rxjs';
+import {UploadVehiclePhotoComponent} from './upload-vehicle-photo/upload-vehicle-photo.component';
+import {  EventEmitter, Output } from '@angular/core';
+import { AssignedVehiclesViewComponent } from './assigned-vehicles-view/assigned-vehicles-view.component';
 
 export interface Vehicle {
-  vehivelID: number,
-  userID: number,
-  vehicleTypeID: number,
-  user: string,
-  vehcileType: string
+  vehicleId: number,
+  brandId: number,
+  name?: string,
+  vehicletypeId: number,
+  description?: string,
+  modelId: number,
+  year?: string,
+  modelName?:string,
+  AssignedStatus: number,
+  vehicletype: string,
+  DatePurchased: string,
+  status: string,
+  imageUrl: string,
+  vehiclemake: string,
+  vehiclemodel: string,
 }
 
 @Component({
   selector: 'app-vehicle',
   templateUrl: './vehicle.component.html',
-  styleUrls: ['./vehicle.component.css']
+  styleUrls: ['./vehicle.component.css'],
+  template:' {{data.id}}',
 })
 export class VehicleComponent implements OnInit {
 
+  selectedFiles?: FileList;
+  selectedFileNames: string[] = [];
+  progressInfos: any[] = [];
+  message: string[] = [];
+  previews: string[] = [];
+  imageInfos?: Observable<any>;
+
   // API Test
-  data: vehicle[] = [];
+  Vehicledata: vehicle[] = [];
+  vehicleData: vehicle[];
 
-  displayedColumns: string[] = ['id', 'vehicleType', 'user', 'actions'];
+  UnAssignedVehicle:vehicle[];
 
+
+  displayedColumns: string[] = [ 'make','vehicleType','modelName','Year','status','actions'];
   dataSource!: MatTableDataSource<vehicle>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator
   @ViewChild(MatSort) sort!: MatSort
 
   posts: any;
-  Tyoelist: vehicletype[] = [];
-  userlist: user[] = [];
 
-  constructor(private route: Router, private service: ServiceService, private _snackBar: MatSnackBar) {
+  constructor(private route: Router,
+    private dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public VehicleID:{id:number},
+    private service: ServiceService,
+     private _snackBar: MatSnackBar) {
     this.GetAllVehicles();
    }
+   
+   ngOnInit(): void {
+   
+    //this.service.getUser().subscribe(i => { this.userlist = i; console.log("userlist", this.userlist) });
+  }
 
   GetAllVehicles() {
     this.service.getVehicle().subscribe(x => {
-      this.data = x;
-      console.log(this.data);
+      this.Vehicledata = x;
+      console.log(this.Vehicledata);
       this.posts = x;
-
       this.dataSource = new MatTableDataSource(this.posts)
-
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     })
@@ -61,10 +95,82 @@ export class VehicleComponent implements OnInit {
     }
   }
 
-  UpdateVehicle() {
-    this.route.navigateByUrl('/updateVehicle')
+
+  openAddVehicleDialog(): void {
+    const dialogRef = this.dialog.open(AddVehicleComponent, {
+      width: '60%',
+      height:'70%',
+    }
+    );
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.GetAllVehicles();
+
+    });
   }
 
+  openUploadVehiclePhotoDialog(id: number): void {
+    console.log()
+    const dialogRef = this.dialog.open(UploadVehiclePhotoComponent, {
+
+      width: '40%',
+      height:'70%',
+      data:{id},
+
+    }
+    );
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.GetAllVehicles();
+
+    });
+  }
+
+
+  openAssignVehicleDialog(): void {
+    const dialogRef = this.dialog.open(UnassignedVehicleViewComponent, {
+
+      width: '60%',
+      height:'70%',
+
+
+    }
+    );
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.GetAllVehicles();
+
+    });
+  }
+
+  openAssignedVehicleDialog(): void {
+    const dialogRef = this.dialog.open(AssignedVehiclesViewComponent, {
+
+      width: '60%',
+      height:'70%',
+
+
+    }
+    );
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.GetAllVehicles();
+
+    });
+  }
+
+
+  UpdateVehicle(id:number) {
+    this.route.navigate(['updateVehicle',id])
+  }
+  assignVehicle() {
+    //or navigate (['assignVehicle',id])
+    this.route.navigateByUrl('/assignVehicle')
+  }
   addVehicle() {
     this.route.navigateByUrl('/addVehicle')
   }
@@ -82,14 +188,8 @@ export class VehicleComponent implements OnInit {
     }
   }
 
-  VehicleType() {
-    this.route.navigateByUrl('vehicleType')
-  }
-
-  ngOnInit(): void {
-    this.service.getVehicleType().subscribe(x => { this.Tyoelist = x; console.log("type", this.Tyoelist) });
-    this.service.getUser().subscribe(i => { this.userlist = i; console.log("userlist", this.userlist) });
-
+  VehicleTree() {
+    this.route.navigateByUrl('/VehicleTreeManagement')
   }
 
 }

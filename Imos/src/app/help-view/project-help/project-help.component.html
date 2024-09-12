@@ -1,0 +1,1324 @@
+<app-header></app-header>
+
+<link rel="stylesheet"
+    href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<h2 style="margin-left:45% ;">Project Help </h2>
+
+<mat-form-field>
+  <mat-label>Search Operation</mat-label>
+  <input matInput  #input  type="text" [(ngModel)]="userFilter.name" placeholder="Subsystem Name">
+
+</mat-form-field>
+
+<br> <br> <br>
+
+
+  <mat-card id="card" >
+    <mat-card-title>
+       Add Project
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Project/add proj.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Add New Project </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Add Project Details</th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>Select Client's Request </th>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <th>Add Project to System</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+
+  <!-- in case you want to show empty message -->
+
+
+
+
+    <mat-card id="card" >
+    <mat-card-title>
+       Update Project
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Project/update projc.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Update Project </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Add Project Details</th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>Select Client's Request</th>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <th>Update Project to System</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+  <!-- in case you want to show empty message -->
+    </mat-card-content>
+
+
+
+
+
+  <mat-card id="card" >
+    <mat-card-title>
+       Search Project
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Project/search projec.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Search Project </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Search Details</th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th> Project Details</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+
+&nbsp;&nbsp;
+
+  <!-- in case you want to show empty message -->
+
+
+    <mat-card id="card" >
+    <mat-card-title>
+       Delete Project
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Project/delete proj.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Delete Project </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Select Project to Delete</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+          <h2 style="margin-left:45% ;">Confirm </h2>
+          <img mat-card-image  src="./../../../assets/Operations/Project/cofirm delte proje.png" alt="." >
+
+
+        </mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Confirm Delete </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th> Confrimation message </th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>  Confrim / cancel operation</th>
+                  </tr>
+
+              </table>
+
+            </div>
+          </div>
+
+
+        </mat-card>
+
+
+      </div>
+
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+<br><br>
+
+&nbsp;&nbsp;
+
+  <!-- in case you want to show empty message -->
+
+
+
+
+
+  <mat-card id="card" >
+    <mat-card-title>
+       Add Task Status
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Project/add task status.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Add New Task Status </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Add Task Status Details</th>
+                  </tr>
+
+                  <tr>
+                    <th>3</th>
+                    <th>Add Task Status to System</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+<br>
+
+&nbsp;
+
+  <!-- in case you want to show empty message -->
+
+
+
+
+
+    <mat-card id="card" >
+    <mat-card-title>
+       Update Task Status
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Project/update task status.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Update Task Status </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Add Task Status Details</th>
+                  </tr>
+
+                  <tr>
+                    <th>3</th>
+                    <th>Update Task Status to System</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+  <!-- in case you want to show empty message -->
+</mat-card-content>
+
+
+
+  <mat-card id="card" >
+    <mat-card-title>
+       Search Task Status
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Project/Search task status.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Search Task Status </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Search Details</th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th> Project Details</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+
+&nbsp;&nbsp;
+
+
+
+  <!-- in case you want to show empty message -->
+
+
+
+
+
+    <mat-card id="card" >
+    <mat-card-title>
+       Delete Task Status
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Project/delete task status.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Delete Task Status </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Select Task Status to Delete</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+
+
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+          <h2 style="margin-left:45% ;">Confirm </h2>
+          <img mat-card-image  src="./../../../assets/Operations/Project/confirm task status delete.png" alt="." >
+
+
+        </mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Confirm Delete </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th> Confrimation message </th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>  Confrim / cancel operation</th>
+                  </tr>
+
+              </table>
+
+            </div>
+          </div>
+
+
+        </mat-card>
+
+
+      </div>
+
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+<br><br>
+
+&nbsp;&nbsp;
+
+  <!-- in case you want to show empty message -->
+
+
+
+
+
+  <mat-card id="card" >
+    <mat-card-title>
+       Add Task
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Project/Add Task.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Add New Task </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Add Task Details</th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>Select Task Type </th>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <th>Add Task to System</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+<br>
+
+&nbsp;
+
+  <!-- in case you want to show empty message -->
+
+
+
+
+
+    <mat-card id="card" >
+    <mat-card-title>
+       Update Task
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Project/update task.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Update Task </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Add Task Details</th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>Select Task Type</th>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <th>Update Task to System</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+  <!-- in case you want to show empty message -->
+
+</mat-card-content>
+</mat-card>
+
+
+
+  <mat-card id="card" >
+    <mat-card-title>
+       Search Task
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Project/Search Task.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Search Task </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Search Details</th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th> Task Details</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+
+&nbsp;&nbsp;
+
+
+
+
+  <!-- in case you want to show empty message -->
+
+
+
+
+
+    <mat-card id="card" >
+    <mat-card-title>
+       Delete Task
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Project/delte task.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Delete Task </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Select Task to Delete</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+          <h2 style="margin-left:45% ;">Confirm </h2>
+          <img mat-card-image  src="./../../../assets/Operations/Project/confirm task delete.png" alt="." >
+
+
+        </mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Confirm Delete </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th> Confrimation message </th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>  Confrim / cancel operation</th>
+                  </tr>
+
+              </table>
+
+            </div>
+          </div>
+
+
+        </mat-card>
+
+
+      </div>
+
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+<br><br>
+
+&nbsp;&nbsp;
+
+  <!-- in case you want to show empty message -->
+
+  </mat-card>
+
+
+
+
+
+
+
+  <mat-card id="card" >
+    <mat-card-title>
+       Add Task Type
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Project/add taks type.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Add New Task Type </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Add Task Type Details</th>
+                  </tr>
+
+                  <tr>
+                    <th>2</th>
+                    <th>Add Task Type to System</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+<br>
+
+&nbsp;
+
+  <!-- in case you want to show empty message -->
+
+
+
+    <mat-card id="card" >
+    <mat-card-title>
+       Update Task Type
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Project/update task type.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Update Task Type </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Add Task Type Details</th>
+                  </tr>
+
+                  <tr>
+                    <th>2</th>
+                    <th>Update Task Type to System</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+  <!-- in case you want to show empty message -->
+
+</mat-card-content>
+
+
+
+  <mat-card id="card" >
+    <mat-card-title>
+       Search Task Type
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Project/search task type.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Search Task Type </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Search Details</th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th> Task Type Details</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+
+&nbsp;&nbsp;
+
+
+    <mat-card id="card" >
+    <mat-card-title>
+       Delete Task Type
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Project/Delete task type.png" alt="." >
+
+</mat-card><br>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Delete Task Type </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Select Task Type to Delete</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+          <h2 style="margin-left:45% ;">Confirm </h2>
+          <img mat-card-image  src="./../../../assets/Operations/Project/confirm task type delete.png" alt="." >
+
+
+        </mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Confirm Delete </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th> Confrimation message </th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>  Confrim / cancel operation</th>
+                  </tr>
+
+              </table>
+
+            </div>
+          </div>
+
+
+        </mat-card>
+
+
+      </div>
+
+<br><br>
+&nbsp;&nbsp;
+
+<mat-card id="card" >
+  <mat-card-title>
+   Add Task Material
+  </mat-card-title>
+  &nbsp;
+  <mat-card-content>
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Project/tak material/add task material.png" alt="." >
+
+</mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;"> Task Material</h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th>Select to Add Material To Task  </th>
+                </tr>
+            </table>
+
+          </div>
+        </div>
+
+      </mat-card>
+
+    </div>
+
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+        <h2 style="margin-left:45% ;">Select Material </h2>
+        <img mat-card-image  src="./../../../assets/Operations/Project/tak material/selecr material.png" alt="." >
+
+
+      </mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;">Select Material </h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th> Select Material details </th>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <th> Select Task </th>
+                </tr>
+                <tr>
+                  <th>3</th>
+                  <th> View Basket </th>
+                </tr>
+
+
+            </table>
+
+          </div>
+        </div>
+
+
+      </mat-card>
+
+
+    </div>
+
+
+
+
+  </mat-card-content>
+
+</mat-card>
+<br><br>
+
+
+
+
+<mat-card id="card" >
+  <mat-card-title>
+   Checkout
+  </mat-card-title>
+  &nbsp;
+  <mat-card-content>
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/project material/checkou proj matt.png" alt="." >
+
+</mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;"> Checkout </h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th>List Of Material </th>
+                </tr>
+                <tr>
+                  <th>1</th>
+                  <th>Checkout button </th>
+                </tr>
+            </table>
+
+          </div>
+        </div>
+
+      </mat-card>
+
+    </div>
+
+
+
+  </mat-card-content>
+
+</mat-card>
+<br><br>
+
+
+
+<mat-card id="card" >
+  <mat-card-title>
+   Add Project Material
+  </mat-card-title>
+  &nbsp;
+  <mat-card-content>
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/project material/add proj mat.png" alt="." >
+
+</mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;"> Project Material</h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th> Add Material  </th>
+                </tr>
+
+                <tr>
+                  <th>2</th>
+                  <th> List Of Material  </th>
+                </tr>
+
+                <tr>
+                  <th>3</th>
+                  <th> View Basket </th>
+                </tr>
+            </table>
+
+          </div>
+        </div>
+
+      </mat-card>
+
+    </div>
+
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+        <h2 style="margin-left:45% ;">Checkout </h2>
+        <img mat-card-image  src="./../../../assets/Operations/project material/checkou proj matt.png" alt="." >
+
+
+      </mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;">Checkout </h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th> List Of Material</th>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <th> Proceed to Add Material To Project</th>
+                </tr>
+
+
+
+            </table>
+
+          </div>
+        </div>
+
+
+      </mat-card>
+
+
+    </div>
+
+
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+        <h2 style="margin-left:45% ;">Search Project Material </h2>
+        <img mat-card-image  src="./../../../assets/Operations/project material/seach proje mat.png" alt="." >
+
+
+      </mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;">Search Project Material </h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th> Search Details</th>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <th> List of Project Material</th>
+                </tr>
+
+
+
+            </table>
+
+          </div>
+        </div>
+
+
+      </mat-card>
+
+
+    </div>
+
+
+
+
+
+
+  </mat-card-content>
+
+</mat-card>
+<br><br>
+
+
+
+
+
+
+
+
+
+
+

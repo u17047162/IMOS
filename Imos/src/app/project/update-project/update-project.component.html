@@ -1,0 +1,55 @@
+<app-header></app-header>
+
+<div class="main">
+
+    <h1>Update Project</h1>
+
+    <form [formGroup]="updateForm" class="addSupplier" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label> Construction Site</mat-label>
+                <mat-select formControlName="Site">
+                    <mat-option *ngFor="let type of ConstructionTypes" [value]="type.id">
+                        {{type.address}}
+                    </mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="formdet['Site'].touched && formdet['Site'].invalid">
+                    <mat-error *ngIf="formdet['Site'].errors?.['required'] && formdet['Site'].dirty">Construction Site is required</mat-error>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Initial Request</mat-label>
+                <input matInput placeholder="Initial Request" #nameInput formControlName="Req">
+                <mat-error *ngIf="formdet['Req'].touched && formdet['address'].invalid">
+                    <mat-error *ngIf="formdet['Req'].errors?.['required'] && formdet['Req'].dirty">Address is
+                        required</mat-error>
+                    <mat-error *ngIf="formdet['Req'].errors?.['minlength'] && formdet['Req'].dirty">10
+                        Characters minimum is required</mat-error>
+                    <mat-error *ngIf="formdet['Req'].errors?.['maxlength'] && formdet['Req'].dirty">100
+                        Characters maximum is required</mat-error>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="standard">
+                <mat-label>Safty File</mat-label>
+                <input matInput placeholder="True" formControlName="SaftyFile" #nameInput>
+                <mat-error *ngIf="formdet['SaftyFile'].touched && formdet['SaftyFile'].invalid">
+                    <mat-error *ngIf="formdet['SaftyFile'].errors?.['required'] && formdet['SaftyFile'].dirty">Safty File is required
+                    </mat-error>
+                </mat-error>
+            </mat-form-field>
+
+
+            <div class="btn">
+
+                <button mat-raised-button color="primary" [disabled]="!updateForm.valid">Update</button>
+                &nbsp;
+                <button (click)="back()" mat-raised-button color="warn">Back</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>

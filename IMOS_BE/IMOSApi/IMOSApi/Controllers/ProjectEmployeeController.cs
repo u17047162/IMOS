@@ -1,6 +1,8 @@
-﻿using IMOSApi.Models;
+﻿using IMOSApi.Dtos.Project;
+using IMOSApi.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,57 +10,101 @@ using System.Threading.Tasks;
 
 namespace IMOSApi.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
-    public class ProjectemployeeController : ControllerBase
+    [ApiController]
+    public class ProjectEmployeeController : ControllerBase
     {
-        [HttpGet("GetProjectemployees")]
-        public IEnumerable<Projectemployee> Retrieve()
+        private readonly IMOSContext _context;
+        public ProjectEmployeeController(IMOSContext context)
         {
-            using (var context = new IMOSContext())
-            {
-                return context.Projectemployees.ToList();
-            }
+            _context = context;
         }
+
+
+        [HttpGet("GetAll")]
+        public ActionResult<IEnumerable<GetAllProjectEmployeeDto>>GetAll()
+        {
+            var recordsInDb = _context.Projectemployees
+                .Include(item => item.Employee)
+                .ThenInclude(item => item.Users)
+                .ThenInclude(item => item.Userrole)
+                .Include(item => item.Project)
+                .Select(item => new GetAllProjectEmployeeDto()
+                {
+                    Id = item.ProjectId,
+                    ProjectName = item.Project.Name,
+                    EmployeeId = item.EmployeeId,
+                    Name = item.Employee.Name,
+                    Email = item.Employee.Email,
+                    Contact = item.Employee.Contactnumber
+                }).OrderBy(item => item.ProjectName).ToList();
+
+            return recordsInDb;
+        }
+
         [HttpGet("GetProjectemployee/{id}")]
         public IEnumerable<Projectemployee> Get(int id)
         {
-            using (var context = new IMOSContext())
-            {
-                IEnumerable<Projectemployee> tmp = context.Projectemployees.Where(emp => emp.ProjectId == id).ToList();
+            
+                IEnumerable<Projectemployee> tmp = _context.Projectemployees.Where(emp => emp.ProjectId == id).ToList();
                 return tmp;
-            }
-        }
-        [HttpPost("CreateProjectemployee")]
-        public IActionResult Create([FromBody] Projectemployee Projectemployee)
-        {
-            using (var context = new IMOSContext())
-            {
-                context.Projectemployees.Add(Projectemployee);
-                context.SaveChanges();
-                return Ok();
-            }
+            
         }
 
-        [HttpPut("UpdateProjectemployee/{Id}")]
-        public void Update([FromBody] Projectemployee Projectemployee, [FromRoute] int Id)
+
+        [HttpPost("Assign")]
+        public IActionResult Assign(AssignEmployeeToProjectDto model)
         {
-            using (var context = new IMOSContext())
+            var message = "";
+            if (ModelState.IsValid)
             {
-                var clie = context.Projectemployees.Where(clie => clie.ProjectId == Id).ToList().FirstOrDefault();
+                var projectEmpInDb = _context.Projectemployees.FirstOrDefault(item => item.ProjectId == model.ProjectId);
+                if (projectEmpInDb != null)
+                {
+                    message = "Project not found";
+                    return BadRequest(new { message });
+                }
+
+                foreach (var item in model.Employees)
+                {
+                    var record = new Projectemployee()
+                    {
+                        ProjectId = model.ProjectId,
+                        EmployeeId = item.EmployeeId
+                        
+                    };
+                    _context.Projectemployees.Add(record);
+                }
                 
-                context.SaveChanges();
+                _context.SaveChanges();
+                return Ok();
             }
+            message = "Something went wrong on your side.";
+            return BadRequest(new { message });
+
         }
-        [HttpDelete("DeleteProjectemployee/{Id}")]
-        public void Delete(int id)
-        {
-            using (var context = new IMOSContext())
-            {
-                var clie = context.Projectemployees.Where(clie => clie.ProjectId == id).ToList().FirstOrDefault(); ;
-                context.Projectemployees.Remove(clie);
-                context.SaveChanges();
-            }
-        }
+
+        //[HttpPut("UpdateProjectemployee/{Id}")]
+        //public void Update([FromBody] Projectemployee Projectemployee, [FromRoute] int Id)
+        //{
+        //    using (var context = new IMOSContext())
+        //    {
+        //        var clie = context.Projectemployees.Where(clie => clie.ProjectId == Id).ToList().FirstOrDefault();
+
+        //        context.SaveChanges();
+        //    }
+        //}
+
+        //[HttpDelete("DeleteProjectemployee/{Id}")]
+        //public void Delete(int id)
+        //{
+        //    using (var context = new IMOSContext())
+        //    {
+        //        var clie = context.Projectemployees.Where(clie => clie.ProjectId == id).ToList().FirstOrDefault(); ;
+        //        context.Projectemployees.Remove(clie);
+        //        context.SaveChanges();
+        //    }
+        //}
     }
+
 }

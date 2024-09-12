@@ -1,0 +1,34 @@
+<app-header></app-header>
+
+<div class= "main">
+
+    <h1>Update Task Type</h1>
+
+    <form [formGroup]="taskTypeFrm" class="addSupplier">
+        <div class="row">
+            <mat-form-field class="standard">
+                <mat-label>Description</mat-label>
+                <input matInput name="Description" #nameInput formControlName="Description">
+                <mat-error *ngIf="formdet['Description'].touched && formdet['Description'].invalid">
+                    <mat-error *ngIf="formdet['Description'].errors?.['required'] && formdet['Description'].dirty">Description is required
+                    </mat-error>
+                    <mat-error *ngIf="formdet['Description'].errors?.['pattern'] && formdet['Description'].dirty">Please enter a
+                        letter
+                        only name</mat-error>
+                    <mat-error *ngIf="formdet['Description'].errors?.['maxlength'] && formdet['Description'].dirty">15 Characters
+                        maximum
+                        is required for a type</mat-error>
+                </mat-error>
+            </mat-form-field>
+
+            <div class="btn">
+                <button mat-raised-button color="primary" type="button" (click)="updateTaskT()"
+                    [disabled]="!taskTypeFrm.valid">Update
+                </button>
+                &nbsp;
+                <button mat-raised-button color="warn" type="button" (click)="back()">Back</button>
+            </div>
+        </div>
+    </form>
+
+</div>

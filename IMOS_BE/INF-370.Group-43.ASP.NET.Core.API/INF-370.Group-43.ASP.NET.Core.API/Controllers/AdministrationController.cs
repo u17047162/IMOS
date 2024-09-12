@@ -62,7 +62,7 @@ namespace INF_370.Group_43.ASP.NET.Core.API.Controllers
             return BadRequest(new { message });
 
         }
-        #endregion
+   
 
         [HttpPut("Roles/Update/{username}/{id}")]
         public async Task<IActionResult> UpdateRole(AddOrUpdateUserRoleDto model, string username, string id)
@@ -132,5 +132,6 @@ namespace INF_370.Group_43.ASP.NET.Core.API.Controllers
 
             return userRolesInDb;
         }
+        #endregion
     }
 }

@@ -1,0 +1,54 @@
+<app-header></app-header>
+
+<link rel="stylesheet"
+    href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<h2 style="margin-left:45% ;">Backup/ Restore Database</h2>
+
+
+<mat-card>
+
+  <mat-grid-list cols="4" rowHeight="1:1" [gutterSize]="'10px'">
+    <mat-grid-tile>
+      <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>BackUp Database</mat-card-title>
+
+        </mat-card-header>
+
+        <button class="CheckoutBut" (click)="BackUpDatabase()"  mat-flat-button color="primary">Generate report</button>
+
+    </mat-card>
+
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>Restore Database Backup </mat-card-title>
+
+        </mat-card-header>
+
+        <form  [formGroup]="filepath" >
+          <mat-form-field appearance="outline" class="control-w">
+            <mat-label>Enter File Path:</mat-label>
+                <input  matInput placeholder="Enter the File path" formControlName="filepath">
+                <mat-hint>File Path </mat-hint>
+                <mat-error *ngIf="hasError('filepath', 'required')">File path</mat-error>
+          </mat-form-field>
+        </form>
+
+        <button class="CheckoutBut" (click)="openDialog()"  mat-flat-button color="primary">Restore Database </button>
+
+    </mat-card>
+
+    </mat-grid-tile>
+
+
+  </mat-grid-list>
+
+
+</mat-card>
+
+

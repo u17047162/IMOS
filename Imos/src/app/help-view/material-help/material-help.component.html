@@ -1,0 +1,766 @@
+<app-header></app-header>
+
+<link rel="stylesheet"
+    href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<h2 style="margin-left:45% ;">Material Help </h2>
+
+<mat-form-field>
+  <mat-label>Search Operation</mat-label>
+  <input matInput  #input  type="text" [(ngModel)]="userFilter.name" placeholder="Subsystem Name">
+
+</mat-form-field>
+
+<br> <br> <br>
+
+
+  <mat-card id="card" >
+    <mat-card-title>
+       Add Material
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Material/Add Material.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Add New Material </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Add Material Details</th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>Select Supplier</th>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <th>Add Material to System</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+          <h2 style="margin-left:45% ;">Confirm </h2>
+          <img mat-card-image  src="./../../../assets/Operations/Material/Confrim add.png" alt="." >
+
+
+        </mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Confirm Add </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th> Confrimation message </th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>  Confrim / cancel operation</th>
+                  </tr>
+
+              </table>
+
+            </div>
+          </div>
+
+
+        </mat-card>
+
+
+      </div>
+
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+<br>
+
+&nbsp;
+
+  <!-- in case you want to show empty message -->
+
+
+  <mat-card *ngIf="(users | filterBy: userFilter).length === 0">
+    No matching elements
+
+  </mat-card>
+
+
+    <mat-card id="card" >
+    <mat-card-title>
+       Update Material
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Material/Update mate.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Update Material </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Add Material Details</th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>Select Supplier</th>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <th>Update Material to System</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+          <h2 style="margin-left:45% ;">Confirm </h2>
+          <img mat-card-image  src="./../../../assets/Operations/Material/Confrim add.png" alt="." >
+
+
+        </mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Confirm Update </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th> Confrimation message </th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>  Confrim / cancel operation</th>
+                  </tr>
+
+              </table>
+
+            </div>
+          </div>
+
+
+        </mat-card>
+
+
+      </div>
+
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+<br><br>
+
+&nbsp;&nbsp;
+
+  <!-- in case you want to show empty message -->
+
+
+  <mat-card *ngIf="(users | filterBy: userFilter).length === 0">
+    No matching elements
+
+  </mat-card>
+
+
+
+  <mat-card id="card" >
+    <mat-card-title>
+       Search Material
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Material/Search Mate.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Search Material </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Search Details</th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th> Material Details</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+
+&nbsp;&nbsp;
+
+  <!-- in case you want to show empty message -->
+
+
+  <mat-card *ngIf="(users | filterBy: userFilter).length === 0">
+    No matching elements
+
+  </mat-card>
+
+
+
+  <!-- in case you want to show empty message -->
+
+
+  <mat-card *ngIf="(users | filterBy: userFilter).length === 0">
+    No matching elements
+
+  </mat-card>
+
+
+    <mat-card id="card" >
+    <mat-card-title>
+       Delete Material
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Material//Delete material.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Delete Material </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Select Material to Delete</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+          <h2 style="margin-left:45% ;">Confirm </h2>
+          <img mat-card-image  src="./../../../assets/Operations/Material//delete mate confrm.png" alt="." >
+
+
+        </mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Confirm Delete </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th> Confrimation message </th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>  Confrim / cancel operation</th>
+                  </tr>
+
+              </table>
+
+            </div>
+          </div>
+
+
+        </mat-card>
+
+
+      </div>
+
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+<br><br>
+
+&nbsp;&nbsp;
+
+  <!-- in case you want to show empty message -->
+
+
+  <mat-card *ngIf="(users | filterBy: userFilter).length === 0">
+    No matching elements
+
+  </mat-card>
+
+
+
+<br> <br>
+
+
+
+<mat-card id="card" >
+  <mat-card-title>
+     Add Material Type
+  </mat-card-title>
+  &nbsp;
+  <mat-card-content>
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Material/add type.png" alt="." >
+
+</mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;">Add New Material Type </h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th>Add Material Type Details</th>
+                </tr>
+
+                <tr>
+                  <th>2</th>
+                  <th>Add Material Type to System</th>
+                </tr>
+            </table>
+
+          </div>
+        </div>
+
+      </mat-card>
+
+    </div>
+
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+        <h2 style="margin-left:45% ;">Confirm </h2>
+        <img mat-card-image  src="./../../../assets/Operations/Material/add type confirm.png" alt="." >
+
+
+      </mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;">Confirm Add </h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th> Confrimation message </th>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <th>  Confrim / cancel operation</th>
+                </tr>
+
+            </table>
+
+          </div>
+        </div>
+
+
+      </mat-card>
+
+
+    </div>
+
+
+
+
+  </mat-card-content>
+
+</mat-card>
+<br>
+
+&nbsp;
+
+<!-- in case you want to show empty message -->
+
+
+<mat-card *ngIf="(users | filterBy: userFilter).length === 0">
+  No matching elements
+
+</mat-card>
+
+
+  <mat-card id="card" >
+  <mat-card-title>
+     Update Material Type
+  </mat-card-title>
+  &nbsp;
+  <mat-card-content>
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Material/update type.png" alt="." >
+
+</mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;">Update Material Type</h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th>Add Material Type Details</th>
+                </tr>
+
+                <tr>
+                  <th>3</th>
+                  <th>Update Material Type to System</th>
+                </tr>
+            </table>
+
+          </div>
+        </div>
+
+      </mat-card>
+
+    </div>
+
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+        <h2 style="margin-left:45% ;">Confirm </h2>
+        <img mat-card-image  src="./../../../assets/Operations/Material/add type confirm.png" alt="." >
+
+
+      </mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;">Confirm Update </h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th> Confrimation message </th>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <th>  Confrim / cancel operation</th>
+                </tr>
+
+            </table>
+
+          </div>
+        </div>
+
+
+      </mat-card>
+
+
+    </div>
+
+
+
+
+  </mat-card-content>
+
+</mat-card>
+<br><br>
+
+&nbsp;&nbsp;
+
+<!-- in case you want to show empty message -->
+
+
+<mat-card *ngIf="(users | filterBy: userFilter).length === 0">
+  No matching elements
+
+</mat-card>
+
+
+
+<mat-card id="card" >
+  <mat-card-title>
+     Search Material Type
+  </mat-card-title>
+  &nbsp;
+  <mat-card-content>
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Material/search type.png" alt="." >
+
+</mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;">Search Material Type </h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th>Search Details</th>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <th> Material Type Details</th>
+                </tr>
+            </table>
+
+          </div>
+        </div>
+
+      </mat-card>
+
+    </div>
+
+
+
+
+
+  </mat-card-content>
+
+</mat-card>
+
+&nbsp;&nbsp;
+
+<!-- in case you want to show empty message -->
+
+
+<mat-card *ngIf="(users | filterBy: userFilter).length === 0">
+  No matching elements
+
+</mat-card>
+
+
+
+<!-- in case you want to show empty message -->
+
+
+<mat-card *ngIf="(users | filterBy: userFilter).length === 0">
+  No matching elements
+
+</mat-card>
+
+
+  <mat-card id="card" >
+  <mat-card-title>
+     Delete Material Type
+  </mat-card-title>
+  &nbsp;
+  <mat-card-content>
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/Material/Delete type.png" alt="." >
+
+</mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;">Delete Material Type </h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th>Select Material Type to Delete</th>
+                </tr>
+            </table>
+
+          </div>
+        </div>
+
+      </mat-card>
+
+    </div>
+
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+        <h2 style="margin-left:45% ;">Confirm </h2>
+        <img mat-card-image  src="./../../../assets/Operations/Material/delete mate confrm.png" alt="." >
+
+
+      </mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;">Confirm Delete </h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th> Confrimation message </th>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <th>  Confrim / cancel operation</th>
+                </tr>
+
+            </table>
+
+          </div>
+        </div>
+
+
+      </mat-card>
+
+
+    </div>
+
+
+
+
+  </mat-card-content>
+
+</mat-card>
+<br><br>
+
+&nbsp;&nbsp;
+
+<!-- in case you want to show empty message -->
+
+
+<mat-card *ngIf="(users | filterBy: userFilter).length === 0">
+  No matching elements
+
+</mat-card>
+
+
+

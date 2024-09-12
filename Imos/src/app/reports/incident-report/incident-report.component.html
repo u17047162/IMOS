@@ -1,0 +1,24 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+</head>
+
+<app-header></app-header>
+<div class="center" id="print">
+    <h1 class="font">Incident Report</h1>
+
+    <p>Developed By: Chase Nel</p>
+    <p>Date Developed:{{currentDate | date:' yyyy-MM-dd'}}</p>
+
+    <img class="img" src="./../../../assets/images/TWS Logo.png">
+
+    <div class="chart1">
+        <canvas id="canvas">{{chart}}</canvas>
+    </div>
+    <div class="chart2">
+        <canvas id="canvas2">{{chart2}}</canvas>
+    </div>
+</div>
+
+<button mat-raised-button color="primary" (click)="download()">Download</button>

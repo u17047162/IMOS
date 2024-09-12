@@ -1,0 +1,46 @@
+.center {
+    border: 2px solid #ec7777;
+    text-align: center;
+    height: 550px;
+}
+
+h1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    position: relative;
+    top: 5px;
+}
+
+p{
+    font-size: large;
+}
+
+.chart1 {
+    width: 600px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 100px;
+    right: 300px;
+}
+
+.chart2{
+ width: 300px;
+ position: relative;
+ margin-left: auto;
+ margin-right: auto;
+ bottom: 400px;
+ left: 300px;
+}
+
+.img {
+    position: relative;
+    left: 560px;
+    bottom: 110px
+}
+
+button{
+    position: relative;
+    bottom: 80px;
+    left: 47%
+}

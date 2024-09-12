@@ -10,8 +10,4 @@
     <ProjectReference Include="..\Group43.Data\Group43.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-  </ItemGroup>
-
 </Project>

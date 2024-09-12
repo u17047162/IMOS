@@ -1,6 +1,6 @@
 ﻿using IMOSApi.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,57 +8,139 @@ using System.Threading.Tasks;
 
 namespace IMOSApi.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class AttendenceController : ControllerBase
     {
-        [HttpGet("GetAttendence")]
-        public IEnumerable<Attendence> Retrieve()
+        private IMOSContext _dbContext;
+        public AttendenceController(IMOSContext dbContext)
         {
-            using (var context = new IMOSContext())
-            {
-                return context.Attendences.ToList();
-            }
-        }
-        [HttpGet("GetAttendence/{id}")]
-        public IEnumerable<Attendence> Get(int id)
-        {
-            using (var context = new IMOSContext())
-            {
-                IEnumerable<Attendence> tmp = context.Attendences.Where(emp => emp.AttendenceId == id).ToList();
-                return tmp;
-            }
-        }
-        [HttpPost("CreateAttendence")]
-        public IActionResult Create([FromBody] Attendence Attendance)
-        {
-            using (var context = new IMOSContext())
-            {
-                context.Attendences.Add(Attendance);
-                context.SaveChanges();
-                return Ok();
-            }
+            _dbContext = dbContext;
         }
 
-        [HttpPut("UpdateAttendence/{Id}")]
-        public void Update([FromBody] Attendence Attendance, [FromRoute] int Id)
+        [HttpGet("GetAll")]
+        public ActionResult<IEnumerable<GetEmployeeDto>> GetAll()
         {
-            using (var context = new IMOSContext())
-            {
-                var clie = context.Attendences.Where(clie => clie.AttendenceId == Id).ToList().FirstOrDefault();
-                //emp.
-                context.SaveChanges();
-            }
+
+            var recordInDb = _dbContext.Attendences
+                .Select(item => new GetEmployeeDto()
+                {
+                    AttendenceId = item.AttendenceId,
+                    EmployeeId = item.EmployeeId,
+                    ProjectId = item.ProjectId,
+                    Present = item.Present,
+                    Date = item.Date,
+                }).OrderBy(item => item.EmployeeId).ToList();
+
+            return recordInDb;
         }
-        [HttpDelete("DeleteAttendence/{Id}")]
-        public void Delete(int id)
+
+        [HttpGet("GetAttendanceById/{id}")]
+        public ActionResult<GetEmployeeDto> GetRecord(int id)
         {
-            using (var context = new IMOSContext())
+
+            var recordInDb = _dbContext.Attendences
+              .Where(item => item.AttendenceId == id)
+              .Select(item => new GetEmployeeDto()
+              {
+                  AttendenceId = item.AttendenceId,
+                  EmployeeId = item.EmployeeId,
+                  ProjectId = item.ProjectId,
+                  Present = item.Present,
+                  Date = item.Date,
+
+              }).OrderBy(item => item.EmployeeId).First();
+            if (recordInDb == null)
             {
-                var clie = context.Attendences.Where(clie => clie.AttendenceId == id).ToList().FirstOrDefault(); ;
-                context.Attendences.Remove(clie);
-                context.SaveChanges();
+                return NotFound();
             }
+            return recordInDb;
+        }
+
+
+        [HttpPost("AddAttendance")]
+        public IActionResult AddAttendance(AddEmployeeDto model)
+        {
+            var message = "";
+            if (!ModelState.IsValid)
+            {
+                message = "Something went wrong on your side.";
+                return BadRequest(new { message });
+            }
+
+            var newAttendance = new Attendence()
+            {
+                EmployeeId = model.EmployeeId,
+                ProjectId = model.ProjectId,
+                Present = model.Present,
+                Date = model.Date,
+            };
+            _dbContext.Attendences.Add(newAttendance);
+            _dbContext.SaveChanges();
+
+            /* var document = new Document()
+             {
+                 EmployeeId = newEmployee.EmployeeId,
+                 FileUrl = model.FilePath
+             };*/
+
+            /// _dbContext.Documents.Add(document);
+            //    _dbContext.SaveChanges();
+            return Ok();
+        }
+
+        [HttpPut("UpdateAttendance/{id}")]
+        public IActionResult Update(UpdateEmployeeDto model, int id)
+        {
+            var message = "";
+            if (ModelState.IsValid)
+            {
+                var recordInDb = _dbContext.Attendences.FirstOrDefault(item => item.AttendenceId == id);
+
+                if (recordInDb == null)
+                {
+                    return NotFound();
+                }
+
+                recordInDb.EmployeeId = model.EmployeeId;
+                recordInDb.ProjectId = model.ProjectId;
+                recordInDb.Present = model.Present;
+                recordInDb.Date = model.Date;
+                _dbContext.SaveChanges();
+
+                /*  var document = new Document()
+                  {
+                      EmployeeId = recordInDb.EmployeeId,
+                      FileUrl = model.FilePath
+                  };*/
+
+                // _dbContext.Documents.Add(document);
+                //   _dbContext.SaveChanges();
+                return Ok();
+            }
+
+            message = "Something went wrong on your side.";
+            return BadRequest(new { message });
+        }
+
+
+        [HttpDelete("DeleteAttendance/{id}")]
+        public async Task<ActionResult<Attendence>> Delete(int id)
+        {
+            var recordInDb = await _dbContext.Attendences.FindAsync(id);
+            if (recordInDb == null)
+            {
+                return NotFound();
+            }
+
+            /*var projectAttendances = _dbContext.att.Where(item => item.EmployeeId == id);
+            _dbContext.Projectemployees.RemoveRange(projectEmployees);*/
+            await _dbContext.SaveChangesAsync();
+
+
+            _dbContext.Attendences.Remove(recordInDb);
+            await _dbContext.SaveChangesAsync();
+            return Ok();
         }
     }
 }

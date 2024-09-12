@@ -1,6 +1,8 @@
-﻿using IMOSApi.Models;
+﻿using IMOSApi.Dtos.Equipment;
+using IMOSApi.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,57 +10,95 @@ using System.Threading.Tasks;
 
 namespace IMOSApi.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
-    public class ProjectequipmentController : ControllerBase
+    [ApiController]
+    public class ProjectEquipmentController : ControllerBase
     {
-        [HttpGet("GetProjectequipments")]
-        public IEnumerable<Projectequipment> Retrieve()
+        private readonly IMOSContext _context;
+        public ProjectEquipmentController(IMOSContext context)
         {
-            using (var context = new IMOSContext())
-            {
-                return context.Projectequipments.ToList();
-            }
+            _context = context;
         }
+
+        [HttpGet("GetAll")]
+        public ActionResult<IEnumerable<GetAllProjectEquipmentsDto>> GetAll()
+        {
+            var recordsInDb = _context.Projectequipments
+                .Include(item => item.Project)
+                .Include(item=>item.Equipment)
+                  .Select(item => new GetAllProjectEquipmentsDto()
+                  {
+                      ProjectId=item.ProjectId,
+                      ProjectName=item.Project.Name,
+                      EquipmentId=item.EquipmentId,
+                      Name=item.Equipment.Name,
+                      Description=item.Equipment.Description
+
+                  }).OrderBy(item => item.ProjectName).ToList();
+            return recordsInDb;
+        }
+
         [HttpGet("GetProjectequipment/{id}")]
         public IEnumerable<Projectequipment> Get(int id)
         {
-            using (var context = new IMOSContext())
-            {
-                IEnumerable<Projectequipment> tmp = context.Projectequipments.Where(emp => emp.ProjectId == id).ToList();
+            
+            
+                IEnumerable<Projectequipment> tmp = _context.Projectequipments.Where(emp => emp.ProjectId == id).ToList();
                 return tmp;
-            }
-        }
-        [HttpPost("CreateProjectequipment")]
-        public IActionResult Create([FromBody] Projectequipment Projectequipment)
-        {
-            using (var context = new IMOSContext())
-            {
-                context.Projectequipments.Add(Projectequipment);
-                context.SaveChanges();
-                return Ok();
-            }
+            
         }
 
-        [HttpPut("UpdateProjectequipment/{Id}")]
-        public void Update([FromBody] Projectequipment Projectequipment, [FromRoute] int Id)
+        [HttpPost("Assign")]
+        public IActionResult Assign(AddEquipmentToProjectDto model)
         {
-            using (var context = new IMOSContext())
+            var message = "";
+            if (ModelState.IsValid)
             {
-                var clie = context.Projectequipments.Where(clie => clie.ProjectId == Id).ToList().FirstOrDefault();
-                //emp.
-                context.SaveChanges();
+                var projectEquipmentInDb = _context.Projectequipments.FirstOrDefault(item => item.ProjectId == model.ProjectId);
+                if (projectEquipmentInDb != null)
+                {
+                    message = "Project not found";
+                    return BadRequest(new { message });
+                }
+
+                foreach (var item in model.Equipments)
+                {
+                    var record = new Projectequipment()
+                    {
+                        ProjectId = model.ProjectId,
+                        EquipmentId =item.EquipmentId
+                    };
+                    _context.Projectequipments.Add(record);
+                }
+
+                _context.SaveChanges();
+                return Ok();
             }
+            message = "Something went wrong on your side.";
+            return BadRequest(new { message });
+
         }
-        [HttpDelete("DeleteProjectequipment/{Id}")]
-        public void Delete(int id)
-        {
-            using (var context = new IMOSContext())
-            {
-                var clie = context.Projectequipments.Where(clie => clie.ProjectId == id).ToList().FirstOrDefault(); ;
-                context.Projectequipments.Remove(clie);
-                context.SaveChanges();
-            }
-        }
+
+        //[HttpPut("UpdateProjectequipment/{Id}")]
+        //public void Update([FromBody] Projectequipment Projectequipment, [FromRoute] int Id)
+        //{
+        //    using (var context = new IMOSContext())
+        //    {
+        //        var clie = context.Projectequipments.Where(clie => clie.ProjectId == Id).ToList().FirstOrDefault();
+        //        //emp.
+        //        context.SaveChanges();
+        //    }
+        //}
+        //[HttpDelete("DeleteProjectequipment/{Id}")]
+        //public void Delete(int id)
+        //{
+        //    using (var context = new IMOSContext())
+        //    {
+        //        var clie = context.Projectequipments.Where(clie => clie.ProjectId == id).ToList().FirstOrDefault(); ;
+        //        context.Projectequipments.Remove(clie);
+        //        context.SaveChanges();
+        //    }
+        //}
+
     }
 }

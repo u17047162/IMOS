@@ -1,0 +1,53 @@
+
+<button class="btnBack" mat-raised-button color="warn" routerLink="/supplier">Back</button>
+
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success !</strong> Supplier Order Generated and  Sent  Successfully
+    <button mat-button color="warn" (click)="closeAlert()" class="close" data-dismiss="alert" aria-label="Close">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<form [formGroup]="form" class="form-container" >
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title> Add and Generate New Supplier Material Order</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+
+                <mat-form-field class="full-width">
+                    <mat-label>Select Supplier</mat-label>
+                    <mat-select formControlName="SupplierId">
+                        <mat-option *ngFor="let type of supplierList" [value]="type.supplierId">
+                            {{type.supplierName}}
+                        </mat-option>
+                      </mat-select>
+                </mat-form-field>
+                <!-- Selected material ; quantity input => add to order
+                    materialtypeId List==Generate-->
+                        <mat-selection-list #type [multiple]="true" formControlName="materialId">
+                            <mat-list-option *ngFor="let type of supplierMaterialsList" [value]="type.materialId">
+                                {{type.name}}
+                            </mat-list-option>
+                        </mat-selection-list>
+                <br>
+
+              <!-- <p>
+                    Materials selected: {{type.selectedOptions.selected.length}}
+                  </p> --> 
+
+                <mat-form-field appearance="standard">
+                    <mat-label>Quantity</mat-label>
+                    <input type="number" min="1" max="1000" matInput  #nameInput  formControlName="quantity">
+                    <mat-error>Quantity is required</mat-error>
+                </mat-form-field>
+            </div>
+
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)="addToOrderSupplierCart(type)" mat-raised-button color="accent">Add To Supplier Order Cart</button>
+            &nbsp;
+            <button (click)="generateSupplierOrder" mat-raised-button color="primary">Generate Supplier Order</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

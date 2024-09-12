@@ -12,6 +12,6 @@ namespace Group43.Core.Identity
     {
         [MaxLength(75)]
         [Required]
-        public string Description { get; set; }
+        public string Description { get; set; }//extend IndentityRole class
     }
 }

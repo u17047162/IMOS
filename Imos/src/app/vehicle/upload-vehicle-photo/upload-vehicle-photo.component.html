@@ -1,0 +1,41 @@
+<div  class="form-group"  (ngSubmit)="UploadVehiclePhoto()">
+  <form [formGroup]="uploadform" >
+  <label for="file">File:</label>
+
+  <br> <br>
+  <input
+      formControlName="file"
+      id="file"
+      #file
+      type="file"
+      class="form-control"
+      (change)="onFileChange($event)"
+      accept="image/*">
+    </form>
+</div>
+<br><br>
+
+<mat-card  fxFlex.sm="calc(50%-25px)">
+  <img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:595px">
+</mat-card>
+
+<br> <br>
+
+
+
+
+
+
+<div class="row" style="margin-bottom:15px;">
+    <div class="Image" >
+    <button type="submit" class="btn btn-success" (click)="UploadVehiclePhoto()">Upload File</button>
+  </div>
+  <div class="col-md-4">
+    <span class="upload" *ngIf="progress > 0">
+      {{progress}}%
+    </span>
+    <span class="upload" *ngIf="message">
+      {{message}}
+    </span>
+  </div>
+</div>

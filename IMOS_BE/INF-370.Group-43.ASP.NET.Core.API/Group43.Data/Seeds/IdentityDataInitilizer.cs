@@ -25,6 +25,7 @@ namespace Group43.Data.Seeds
                 var role = new AppRole()
                 {
                     Name = "SuperAdmin".ToLower(),
+                    Description = "System Owner".ToLower()
                 };
                 await roleManager.CreateAsync(role);
             }
@@ -37,7 +38,11 @@ namespace Group43.Data.Seeds
             {
                 var adminUser = new AppUser()
                 {
+
                     UserName = "superUser".ToLower(),
+                    Email="SuperUser@gmail.com",
+                    Name="Ngcebo",
+                    Surname="Masilela",
                     AutoAssignedPassword = "Admin12345$"
                 };
 

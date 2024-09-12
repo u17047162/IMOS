@@ -1139,6 +1139,7 @@ create table CLIENT (
    CLIENT_ID            int IDENTITY(1,1)                  not null,
    CONTACTNUMBER        varchar(255)         null,
    CLIENTNAME           varchar(255)         null,
+   CLIENTEMAIL          varchar(255)         null,
    constraint PK_CLIENT primary key (CLIENT_ID)
 )
 go
@@ -1227,7 +1228,8 @@ go
 create table EQUIPMENT (
    EQUIPMENT_ID         int IDENTITY(1,1)                  not null,
    NAME                 varchar(255)         null,
-   DESCRIPTION          varchar(255)         null,
+   DESCRIPTION          varchar(255)         null,	
+   Quantity             int                  null,
    constraint PK_EQUIPMENT primary key (EQUIPMENT_ID)
 )
 go

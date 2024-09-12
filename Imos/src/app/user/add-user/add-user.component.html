@@ -1,26 +1,48 @@
-<app-header></app-header>
 
-<h1 style="text-align: center;">Add User</h1>
-<div class="container">
-  <form action="action_page.php"  [formGroup]="addForm" >
-    <label for="subject">Select User Roles</label>
-    <select id="country"  formControlName="userRole"  (change)="changeUserRole($event)"  >
-      <option *ngFor="let item of data"  [value]="item.userrole1"> {{item.description}}</option>
-
-    </select>
-    <label for="subject">Select Employee</label>
-    <select   id="country" formControlName="employeeId" (change)="changeEmployee($event)" >
-      <option *ngFor="let item of employee"  [value]="item.employeeId"> {{item.name}}</option>
-
-    </select>
-    <label for="subject">Username</label>
-    <textarea id="subject" formControlName="userName" placeholder="username"></textarea>
-
-    <label for="subject">password</label>
-    <textarea id="subject"  formControlName="userPassword"  name="password" placeholder="password"></textarea>
-
-    <input type="button" value="Submit" (click)="onAddSubmit()">
-
-  </form>
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success !</strong> New User Account  Registered Successfully
+    <button mat-button color="warn" (click)="closeAlert()" class="close" data-dismiss="alert" aria-label="Close">
+        <mat-icon>close</mat-icon>
+    </button>
 </div>
+<form [formGroup]="addForm" class="form-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Register New User Account</mat-card-title>
+        </mat-card-header>
 
+        <mat-card-content>
+            <div class="row">
+
+                <mat-form-field class="full-width">
+                    <mat-label>Select  Employee</mat-label>
+                    <mat-select formControlName="employeeId">
+                        <mat-option *ngFor="let type of employeeList" [value]="type.employeeId">
+                            {{type.name}}
+                        </mat-option>
+                      </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <mat-label>UserName</mat-label>
+                    <input matInput  placeholder="Enter userName" #nameInput  formControlName="username">
+                     <!--     <mat-error>Name is required</mat-error> -->
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                  <mat-label>Select  Role</mat-label>
+                  <mat-select formControlName="id">
+                      <mat-option *ngFor="let type of roleList" [value]="type.id">
+                          {{type.description}}
+                      </mat-option>
+                    </mat-select>
+              </mat-form-field>
+
+                <mat-card-actions>
+                    <button (click)="addUser()" mat-raised-button color="primary">Add</button>
+                    <button (click)="back()" mat-raised-button color="warn">back</button>
+                </mat-card-actions>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</form>

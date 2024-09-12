@@ -1,34 +1,45 @@
+<app-header></app-header>
 
+<div class="main">
 
+    <h1>Update Material Type</h1>
 
-<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>Success !</strong> Material Type Updated Successfully
-    <button mat-button color="warn" (click)="closeAlert()" class="close" data-dismiss="alert" aria-label="Close">
-        <mat-icon>close</mat-icon>
-    </button>
-</div>
+    <form [formGroup]="updateForm" class="addSupplier" (ngSubmit)="onSubmit()">
 
-<form [formGroup]="materialTypeFrm" class="form-container">
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title>Update Material Type</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="row">
-                <mat-form-field class="full-width">
-                    <input [(ngModel)]='Name1' matInput placeholder="Material Type Name" name="Name"
-                        formControlName="Name">
-                </mat-form-field>
-                <mat-error *ngIf="hasError('Name', 'required')"></mat-error>
-                <mat-form-field class="full-width">
-                    <input [(ngModel)]='Description1' matInput placeholder="Material Type Description" name="Description"
-                        formControlName="Description">
-                </mat-form-field>
-                <mat-error *ngIf="hasError('Description', 'required')"></mat-error>
-                <mat-card-actions>
-                    <button (click)="updateMaterialT()" mat-raised-button color="primary">Update</button>
-                </mat-card-actions>
+        <div class="row">
+
+            <mat-form-field appearance="standard">
+                <mat-label>Material Type Name</mat-label>
+                <input matInput placeholder="Pipes" #nameInput formControlName="name">
+                <mat-error *ngIf="formdet['name'].touched && formdet['name'].invalid">
+                    <mat-error *ngIf="formdet['name'].errors?.['required'] && formdet['name'].dirty">Name is required
+                    </mat-error>
+                    <!--  <mat-error *ngIf="formdet['name'].errors?.['pattern'] && formdet['name'].dirty">Please enter a
+                        letter only name</mat-error>
+                    <mat-error *ngIf="formdet['name'].errors?.['maxlength'] && formdet['name'].dirty">25 Characters
+                        maximum is required for a full name</mat-error>-->
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Description</mat-label>
+                <input matInput placeholder="Used to carry water" #nameInput formControlName="description">
+                <mat-error *ngIf="formdet['description'].touched && formdet['description'].invalid">
+                    <mat-error *ngIf="formdet['description'].errors?.['required'] && formdet['description'].dirty">Description is
+                        required</mat-error>
+                    <mat-error *ngIf="formdet['description'].errors?.['maxlength'] && formdet['description'].dirty">40
+                        Characters maximum is required for address</mat-error>
+                </mat-error> 
+            </mat-form-field>
+
+            <div class="btn">
+
+                <button mat-raised-button color="primary" [disabled]="!updateForm.valid">Update</button>
+                &nbsp;
+                <button (click)="back()" mat-raised-button color="warn">Back</button>
             </div>
-        </mat-card-content>
-    </mat-card>
-</form>
+        </div>
+
+    </form>
+
+</div>

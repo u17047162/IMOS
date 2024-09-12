@@ -1,0 +1,40 @@
+<div class="main">
+    <h1>Update Vehicle Model In Brand</h1>
+</div>
+<form [formGroup]="UpdateModelFormGroup" class="form-container">
+    <mat-card>
+        <mat-card-content>
+            <div class="row">
+                <mat-form-field appearance="standard">
+                    <mat-label>Model Year Date</mat-label>
+                    <input matInput formControlName="Year" [matDatepicker]="yearPicker"
+                        (click)="yearPicker.open()">
+                    <mat-datepicker-toggle matSuffix [for]="yearPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #yearPicker color="warn"></mat-datepicker>
+                    <mat-error *ngIf="hasError('Year', 'required')"> Model Year Date is required</mat-error>
+                </mat-form-field>
+                
+                <mat-form-field appearance="standard">
+                    <input matInput placeholder="Vehicle Model Name" name="Name"
+                        formControlName="Name">
+                        <mat-error *ngIf="hasError('Name', 'required')">Name is required</mat-error>
+                        <mat-error *ngIf="hasError('Name', 'pattern')">Name with letters only</mat-error>
+                        <mat-error *ngIf="hasError('Name', 'maxlength')">25 characters maximum</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="standard">
+                    <mat-label>Vehicle Color</mat-label>
+                    <input matInput placeholder="Type  Vehicle color" #nameInput formControlName="Color">
+                    <mat-error *ngIf="hasError('Color', 'required')">Color is required</mat-error>
+                    <mat-error *ngIf="hasError('Color', 'pattern')">Enter letter only color name</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="btn">
+                <button mat-raised-button color="primary" type="button" (click)="updateVehicleModel(this.data.id)"
+                    [disabled]="!UpdateModelFormGroup.valid" >Add
+                </button>
+                &nbsp;
+                <button mat-raised-button color="warn" type="button" (click)="back()">Back</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</form>

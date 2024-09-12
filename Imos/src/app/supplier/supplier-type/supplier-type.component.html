@@ -33,12 +33,6 @@
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
-    <!-- Supplier Type ID Column -->
-    <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.suppliertypeId}} </td>
-    </ng-container>
-
     <!-- Supplier Name Column -->
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Supplier Type Name </th>
@@ -50,9 +44,9 @@
 
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let element">
-            <button data-bs-toggle="modal" data-bs-target="#exampleModal" mat-flat-button color="accent"  data-backdrop="static" data-keyboard="false" (click)="UpdateSupplierType(element)" mat-flat-button color="accent">Edit</button>
+            <button (click)="UpdateSupplierType(element.id)" mat-flat-button color="accent">Edit</button>
             &nbsp;
-            <button mat-flat-button color="warn" (click)="deleteSupplierType(element.suppliertypeId)">Delete</button>
+            <button mat-flat-button color="warn" (click)="deleteSupplierType(element.id)">Delete</button>
         </td>
     </ng-container>
 

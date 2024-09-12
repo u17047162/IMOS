@@ -1,1 +1,77 @@
-<p>add-supplier works!</p>
+<app-header></app-header>
+
+<div class="main">
+
+  <h1>Add New Supplier</h1>
+
+  <form [formGroup]="form" class="addSupplier">
+    <div class="row">
+
+      <mat-form-field appearance="standard">
+        <mat-label> Supplier type</mat-label>
+        <mat-select formControlName="suppliertypeId">
+          <mat-option *ngFor="let type of Suppliertypes" [value]="type.id">
+            {{type.name}}
+          </mat-option>
+        </mat-select>
+        <mat-hint>Select a Supplier type</mat-hint>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="standard">
+        <mat-label>Full Name</mat-label>
+        <input matInput placeholder="Jack Foster" #nameInput formControlName="name">
+        <mat-hint>Input  Full Name(Only Letters)</mat-hint>
+        <mat-error *ngIf="formdet['name'].touched && formdet['name'].invalid">
+          <mat-error *ngIf="formdet['name'].errors?.['required'] && formdet['name'].dirty">Name is required</mat-error>
+          <mat-error *ngIf="formdet['name'].errors?.['pattern'] && formdet['name'].dirty">Please enter a letter only name</mat-error>
+          <!-- <mat-error *ngIf="formdet['name'].errors?.['maxlength'] && formdet['name'].dirty">25 Characters maximum is required for a full name</mat-error> -->
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="62 Park Street Pretoria Gauteng" formControlName="Address" #nameInput>
+        <mat-hint>Input Address </mat-hint>
+        <mat-error *ngIf="formdet['Address'].touched && formdet['Address'].invalid">
+          <mat-error *ngIf="formdet['Address'].errors?.['required'] && formdet['Address'].dirty">Address is required</mat-error>
+          <mat-error *ngIf="formdet['Address'].errors?.['minlength'] && formdet['Address'].dirty">10 Characters minimum is required for address</mat-error>
+          <!-- <mat-error *ngIf="formdet['Address'].errors?.['maxlength'] && formdet['Address'].dirty">40 Characters maximum is required for address</mat-error>--> 
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field class="example-full-width" appearance="standard">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput placeholder="Ex. pat@example.com"
+          formControlName="Email">
+          <mat-hint>Input a working Email</mat-hint>
+          <mat-error *ngIf="formdet['Email'].touched && formdet['Email'].invalid">
+            <mat-error *ngIf="formdet['Email'].errors?.['required'] && formdet['Email'].dirty">Email is required</mat-error>
+            <mat-error *ngIf="formdet['Email'].errors?.['email'] && formdet['Email'].dirty">Please enter a valid email address</mat-error>
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Contact</mat-label>
+        <input matInput placeholder="Ex. 0825698445" formControlName="ContactNumber" #nameInput>
+        <mat-hint>Input a working number(Only Digits)</mat-hint>
+        <mat-error *ngIf="formdet['ContactNumber'].touched && formdet['ContactNumber'].invalid">
+          <mat-error *ngIf="formdet['ContactNumber'].errors?.['required'] && formdet['ContactNumber'].dirty">Contact
+            Number is required</mat-error>
+          <mat-error *ngIf="formdet['ContactNumber'].errors?.['pattern'] && formdet['ContactNumber'].dirty">Please enter
+            a 10 digit mobile number</mat-error>
+        </mat-error>
+      </mat-form-field>
+
+      <div class="btn">
+        <button mat-raised-button color="primary" type="button" (click)="AddSupplier()" [disabled]="!form.valid">Add
+        </button>
+        &nbsp;
+        <button mat-raised-button color="warn" type="button" (click)="back()">Back</button>
+      </div>
+
+    </div>
+  </form>
+</div>

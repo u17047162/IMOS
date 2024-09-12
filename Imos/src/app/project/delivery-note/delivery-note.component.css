@@ -1,0 +1,17 @@
+table {
+    width: 100%;
+  }
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48;
+
+  font-size: 30px;
+  position: fixed;
+  left: 95%;
+  bottom: 70%;
+}
+

@@ -1,0 +1,95 @@
+<app-header></app-header>
+
+
+<div class="main">
+
+
+    <h1> Add New Task</h1>
+
+    <form [formGroup]="form"  class="addTask">
+        
+      
+      
+      <div>
+        <mat-form-field appearance="standard">
+            <mat-label> Task type</mat-label>
+            <mat-select formControlName="tasktypeId">
+              <mat-option *ngFor="let type of Tasktypes" [value]="type.tasktype1">
+                  {{type.description}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="hasError('tasktypeId', 'required')">Task Type is required </mat-error>
+          </mat-form-field> 
+    </div>
+
+      
+      
+      <div>
+
+          <mat-form-field appearance="standard">
+            <mat-label>Users</mat-label>
+            <mat-select formControlName="userName">
+              <mat-option *ngFor="let type of Users" [value]="type.userId">
+                  {{type.username}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="hasError('userName', 'required')">User Name is required </mat-error>
+          </mat-form-field> 
+
+        </div >
+
+
+        <div>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a start date</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="startdate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+            <mat-error *ngIf="hasError('startdate', 'required')">Start date is required </mat-error>
+          </mat-form-field>
+
+        </div>
+
+
+
+        <div>
+
+          <mat-form-field appearance="standard">
+            <mat-label>Choose a your date</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="enddate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+            <mat-error *ngIf="hasError('enddate', 'required')">End date is required </mat-error>
+          </mat-form-field>
+          
+        </div>
+
+
+
+        <div>
+          <h4>QNA passed:</h4>
+          <h5>Check the box below if qna is passed OR leave it if qna is not passed.</h5>
+          <input #saveUserNameCheckBox
+    id="saveUserNameCheckBox" 
+    type="checkbox" 
+    [checked]="saveUsername" 
+    (change)="onSaveUsernameChanged(saveUserNameCheckBox.checked)" formControlName="qnapassed">
+        </div>
+
+
+        <div class="btn">
+          <button mat-raised-button color="primary" type="button" (click)="AddTask()"
+              [disabled]="!form.valid">Add
+          </button>
+          &nbsp;
+          <button mat-raised-button color="warn" type="button" (click)="Cancel()">Back</button>
+      </div>
+       
+   
+    </form>
+
+
+</div>

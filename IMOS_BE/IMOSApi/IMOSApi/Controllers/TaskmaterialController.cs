@@ -1,56 +1,176 @@
 ﻿using IMOSApi.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using IMOSApi.Dtos.TaskMaterial;
+using IMOSApi.Dtos.MaterialRequest;
 
 namespace IMOSApi.Controllers
 {
-    [ApiController]
+
+
     [Route("api/[controller]")]
+    [ApiController]
     public class TaskmaterialController : ControllerBase
     {
-        [HttpGet("GetTaskmaterials")]
-        public IEnumerable<Taskmaterial> Retrieve()
+
+        private readonly IMOSContext db = new IMOSContext();
+
+        private readonly IMOSContext _context;
+
+        public TaskmaterialController(IMOSContext context)
         {
-            using (var context = new IMOSContext())
-            {
-                return context.Taskmaterials.ToList();
-            }
-        }
-        [HttpGet("GetTaskmaterial/{id}")]
-        public IEnumerable<Taskmaterial> Get(int id)
-        {
-            using (var context = new IMOSContext())
-            {
-                IEnumerable<Taskmaterial> tmp = context.Taskmaterials.Where(emp => emp.TaskId == id).ToList();
-                return tmp;
-            }
-        }
-        [HttpPost("CreateTaskmaterial")]
-        public IActionResult Create([FromBody] Taskmaterial Taskmaterial)
-        {
-            using (var context = new IMOSContext())
-            {
-                context.Taskmaterials.Add(Taskmaterial);
-                context.SaveChanges();
-                return Ok();
-            }
+            _context = context;
         }
 
-        [HttpPut("UpdateTaskmaterial/{Id}")]
-        public void Update([FromBody] Taskmaterial Taskmaterial, [FromRoute] int Id)
+        [HttpGet("GetProjectTaskMaterial/{Id}")]
+        public ActionResult<IEnumerable<GetTaskMaterialDto>> GetProjectTaskMaterial(int Id)
         {
-            using (var context = new IMOSContext())
-            {
-                var clie = context.Taskmaterials.Where(clie => clie.TaskId == Id).ToList().FirstOrDefault();
-                //emp.
-                context.SaveChanges();
-            }
+            var recordInDb = db.Taskmaterials
+                .Include(item => item.Projectmaterial)
+                .Include(item => item.Task)
+                .Where(item => item.TaskId == Id)
+                .Select(item => new GetTaskMaterialDto()
+                {
+                    TaskMaterialId = item.TaskMaterialId,
+                    MaterialName = item.Projectmaterial.Material.Name,
+                    MaterialTypeName = item.Projectmaterial.Material.Materialtype.Name,
+                    Quantity = item.Quantity
+                }).OrderBy(item => item.MaterialName).ToList();
+
+            return recordInDb;
+
         }
-        [HttpDelete("DeleteEmployee/{Id}")]
+
+        [HttpPost]
+        [Route("CreateTaskmaterial/{projectmaterialId}/{taskId}")] 
+
+        public object CreateTaskmaterial( [FromBody] BasketMaterial[] basketMaterial, int projectmaterialId, int taskId)
+        {
+            
+
+            var message = "";
+            int status;
+
+            try
+            {
+                var taskrecord = db.Tasks
+                .Include(item => item.Taskmaterials)
+                .Where(item => item.TaskId == taskId)
+                .FirstOrDefault();
+
+
+                var taskmaterialrecord = db.Taskmaterials
+                .Include(item => item.Task)
+                .Where(item => item.TaskId == taskId)
+                .FirstOrDefault();
+
+
+                if (taskrecord.TaskStatusId == 6 || taskrecord.TaskStatusId == 1 )
+                {
+                    return status = 403;
+                        message = "Task is already complete";
+                }
+
+
+
+           
+
+                else
+                {
+
+
+                    foreach (var item in basketMaterial)
+                    {
+
+                        var recordInDb = db.Taskmaterials
+                          .Where(xx => xx.MaterialId == item.id && xx.TaskId == taskId )
+                          .FirstOrDefault();
+
+                      
+
+                        var recordOutDb = db.Projectmaterial.Where(xx => xx.MaterialId == item.id)
+                            .FirstOrDefault();
+
+                        if (recordOutDb.Quantity == 0)
+                        {
+                            return message = "Material Not found in Project Material";
+
+                        }
+
+                        else if (taskmaterialrecord == null)
+                        {
+
+
+                            Taskmaterial taskmaterial = new Taskmaterial()
+                            {
+                                TaskId = taskId,
+                                MaterialId = item.id,
+                                ProjectMaterialId = projectmaterialId,
+                                Quantity = item.quantity,
+                            };
+
+                            db.Taskmaterials.Add(taskmaterial);
+
+                            recordOutDb.Quantity = recordOutDb.Quantity - item.quantity;
+
+                        }
+
+                        else /*if (recordInDb != null)*/
+                        {
+
+
+                            if (item.quantity > recordOutDb.Quantity)
+                            {
+                                recordInDb.Quantity = recordInDb.Quantity + recordOutDb.Quantity;
+
+                                recordOutDb.Quantity = 0;
+
+                            }
+                            else if (item.quantity <= recordOutDb.Quantity && item.id == recordInDb.MaterialId)
+                            {
+                                recordInDb.Quantity = recordInDb.Quantity + item.quantity;
+                                recordOutDb.Quantity = recordOutDb.Quantity - item.quantity;
+                            }
+
+                            db.SaveChanges();
+
+
+                        }
+
+
+
+                        db.SaveChanges();
+
+
+                    }
+
+                }
+
+
+                db.SaveChanges();
+                return Ok();
+
+            }
+
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e.InnerException.Message);
+
+                return BadRequest(e.Message);
+
+            }
+
+        }
+
+
+
+            [HttpDelete("DeleteEmployee/{Id}")]
         public void Delete(int id)
         {
             using (var context = new IMOSContext())

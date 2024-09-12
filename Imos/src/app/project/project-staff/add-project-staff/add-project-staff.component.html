@@ -1,0 +1,42 @@
+
+<button class="btnBack" mat-raised-button color="warn" routerLink="/project">Back</button>
+
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success !</strong> Employees Added Successfully
+    <button mat-button color="warn" (click)="closeAlert()" class="close" data-dismiss="alert" aria-label="Close">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<form [formGroup]="form" class="form-container"> 
+     <mat-card>
+        <mat-card-header>
+            <mat-card-title>Add Employees to Project</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+
+                <mat-form-field class="full-width">
+                    <mat-label>Select  Project </mat-label>
+                    <mat-select formControlName="projectId">
+                        <mat-option *ngFor="let type of TypeList" [value]="type.name">
+                            {{type.name}}
+                        </mat-option>
+                      </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Select Employees</mat-label>
+                    <mat-select formControlName="employeeId" multiple>
+                     <mat-option *ngFor="let type of  EmployeeTypes" [value]="type.name">
+                        {{type.name}}
+                    </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-card-actions>
+                    <button (click)="AddProjectEmployees()" mat-raised-button color="primary">Add</button>
+                    <button (click)="back()" mat-raised-button color="warn">back</button>
+                </mat-card-actions> 
+            </div>
+        </mat-card-content>
+    </mat-card>
+</form>

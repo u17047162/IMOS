@@ -1,6 +1,6 @@
 ﻿using IMOSApi.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace IMOSApi.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class InvoiceController : ControllerBase
     {
-        [HttpGet("GetInvoices")]
+      /*  [HttpGet("GetInvoices")]
         public IEnumerable<Invoice> Retrieve()
         {
             using (var context = new IMOSContext())
@@ -59,6 +59,7 @@ namespace IMOSApi.Controllers
                 context.Invoices.Remove(clie);
                 context.SaveChanges();
             }
-        }
+        }*/
     }
 }
+

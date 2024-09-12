@@ -1,0 +1,72 @@
+<div class="header">
+    <div class="row">
+        <div>
+            <mat-toolbar color="primary" >
+                <span> Orders Per Supplier Report
+                    
+                </span>
+                <span class="example-spacer"></span>
+                <button mat-raised-button color="accent" style="width: 50%;float: right 80px;">Print Report</button>
+              </mat-toolbar>
+        </div>
+    </div>
+</div>
+<br>
+<div class="example-container">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Choose Start Date</mat-label>
+        <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="startpicker"> 
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
+        <mat-datepicker #startpicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Choose End Date</mat-label>
+        <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker"> 
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Select  Supplier</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let type of SupplierList" [value]="type.name">
+            {{type.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+</div>
+<br>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort >
+
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>  order Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="orderNumber"> <!-- supplierName-->
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>  orderNumber  </th>
+        <td mat-cell *matCellDef="let element"> {{element.orderNumber}} </td>
+    </ng-container>
+    <ng-container matColumnDef="supplierName"> <!-- supplierName-->
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>  supplierName  </th>
+        <td mat-cell *matCellDef="let element"> {{element.supplierName}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<button  (click)="downloadPDF()"  mat-flat-button color="accent"> Download PDF</button>
+
+
+
+
+
+
+ 
+      
+    
+

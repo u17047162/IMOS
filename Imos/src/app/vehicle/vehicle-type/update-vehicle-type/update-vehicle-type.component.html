@@ -1,27 +1,17 @@
-<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>Success !</strong> Vehicle Type Updated Successfully
+<app-header></app-header>
+<div *ngIf="hide" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success !</strong> Vehicle  Type Updated Successfully
     <button mat-button color="warn" (click)="closeAlert()" class="close" data-dismiss="alert" aria-label="Close">
         <mat-icon>close</mat-icon>
     </button>
 </div>
-
-<form [formGroup]="vehicleTypeFrm" class="form-container">
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title>Update Vehicle Type</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="row">
-                <mat-form-field class="full-width">
-                    <input [(ngModel)]='Description1' matInput placeholder="Vehicle Type Name" name="Description"
-                        formControlName="Description">
-                </mat-form-field>
-                <mat-error *ngIf="hasError('Description', 'required')"></mat-error>
-                <mat-card-actions>
-                    <button (click)="updateVehicleT()" mat-raised-button color="primary">Update</button>
-                </mat-card-actions>
-            </div>
-        </mat-card-content>
-    </mat-card>
+<form [formGroup]="UpdateTypesFormGroup" class="form" >
+    <mat-card-content>
+        <mat-form-field class="full-width">
+            <mat-label>Description</mat-label>
+            <input matInput placeholder=" Type Description " formControlName="Description">
+          </mat-form-field>
+         <!-- <mat-error *ngIf="hasError('Description', 'required')"></mat-error>--> 
+    </mat-card-content>
+    <button mat-raised-button color="primary" [disabled]="!UpdateTypesFormGroup.valid"(click)="UpdateVehicleType()">Update</button>
 </form>
-

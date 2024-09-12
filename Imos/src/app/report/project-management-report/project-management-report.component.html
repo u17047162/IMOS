@@ -1,0 +1,394 @@
+
+<div  id="htmlData" #htmlData>
+
+  <mat-card>
+
+
+
+    <mat-card-content>
+      <div class="container">
+        <img src="../../assets/images/Logo.png" class="img-fluid" alt="">  <br>
+        <p>
+          <label for="" style="font-size: 38px;">Project Management Report</label>
+          <br>
+          <br>
+          <label for="" style="font-size: 28px;">Date: {{myDate | date:'medium'}}</label>
+          <br>
+          <br>
+          <label for="" style="font-size: 18px;">Created by: Hloni</label>
+
+        </p>
+
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+  <br> <br>
+
+<mat-card>
+
+  <h2 style="margin-left:45% ;"> Projects Details</h2>
+
+    <table mat-table [dataSource]="ProjectdataSource" class="mat-elevation-z8" matSort>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name  </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="request">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Request  </th>
+      <td mat-cell *matCellDef="let element"> {{element.request}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="constructionsite">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Construction Site  </th>
+      <td mat-cell *matCellDef="let element"> {{element.constructionsite}} </td>
+    </ng-container>
+    <ng-container matColumnDef="clientName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Client Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.clientName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="clientEmail">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Client Email  </th>
+      <td mat-cell *matCellDef="let element"> {{element.clientEmail}} </td>
+    </ng-container>
+        <tr mat-header-row *matHeaderRowDef="ProjectdisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: ProjectdisplayedColumns;"></tr>
+
+    </table>
+
+
+</mat-card>
+  <br><br>
+
+  <mat-card>
+    <div  >
+
+      <div   >
+      <div *ngIf = "chartsLoaded">
+
+
+        <div    >
+          <div  >
+            <div >
+              <canvas baseChart
+              [data] = "TaskCountData"
+              [type]="'bar'"
+              [options] = "TaskCountOptions"
+              >
+
+              </canvas>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      </div>
+      </div>
+  </mat-card>
+<br><br>
+  <mat-card>
+    <br>
+    <h2 style="margin-left:45% ;">All Projects Tasks</h2>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description  </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tasktypeDescription">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Type  </th>
+      <td mat-cell *matCellDef="let element"> {{element.tasktypeDescription}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="startdate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Start date  </th>
+      <td mat-cell *matCellDef="let element"> {{element.startdate}} </td>
+    </ng-container>
+    <ng-container matColumnDef="enddate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> End date  </th>
+      <td mat-cell *matCellDef="let element"> {{element.enddate}} </td>
+    </ng-container>
+    <ng-container matColumnDef="statusName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Task status  </th>
+      <td mat-cell *matCellDef="let element"> {{element.statusName}} </td>
+    </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+<br><br>
+    <label for="">Total number of Tasks:{{TotalTasks}}</label>
+    </mat-card>
+
+    <br><br><br>
+
+    <mat-card>
+      <h2 style="margin-left:45% ;">All Projects Incidents</h2>
+      <!-- add [dataSource]="dataSource" when API is connected -->
+      <table style="width: 100%;" mat-table [dataSource]="IncidentdataSource" class="mat-elevation-z8" matSort>
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Equipment Name Column -->
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+            <td mat-cell *matCellDef="let test"> {{test.description}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+          <td mat-cell *matCellDef="let test"> {{test.date}} </td>
+      </ng-container>
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedIncidentColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedIncidentColumns;"></tr>
+
+        <!-- Search: Not Found -->
+
+
+      </table>
+
+
+      </mat-card>
+
+    <br><br>
+
+&nbsp;
+
+<mat-card>
+
+  <div   fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+    <mat-card  fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+
+      <div  >
+
+        <div >
+        <div *ngIf = "chartsLoaded">
+
+          <div   >
+            <div  >
+              <div  >
+                <canvas baseChart
+                [data] = "ProjectMaterialData"
+                [type]="'pie'"
+                [options] = "ProjectMaterialOptions"
+                >
+
+                </canvas>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        </div>
+        </div>
+
+
+    </mat-card>
+
+    <br><br>
+
+
+    <mat-card  fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" >
+
+
+      <div  >
+
+        <div >
+        <div *ngIf = "chartsLoaded">
+
+          <div   >
+            <div  >
+              <div  >
+                <canvas baseChart
+                [data] = "ProjectMaterialData"
+                [type]="'bar'"
+                [options] = "ProjectMaterialOptions"
+                >
+
+                </canvas>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        </div>
+        </div>
+
+
+    </mat-card>
+
+  </div>
+
+  &nbsp;
+  <br><br>
+   <mat-card>
+    <h2 style="margin-left:45% ;">All Project Material</h2>
+
+<!-- Material Type
+<button (click)="materialType()" mat-flat-button color="primary" class="URbtn">Material Type</button>
+<button (click)="materialRequest()" mat-flat-button color="primary" class="URbtn">Material Request</button>
+<br> -->
+
+
+
+<table mat-table [dataSource]="ProjMaterialdataSource" class="mat-elevation-z8" matSort>
+
+  <ng-container matColumnDef="materialName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Material Name  </th>
+    <td mat-cell *matCellDef="let element"> {{element.materialName}} </td>
+</ng-container>
+
+<ng-container matColumnDef="materialTypeName">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header> Material Type   </th>
+  <td mat-cell *matCellDef="let element"> {{element.materialTypeName}} </td>
+</ng-container>
+
+<ng-container matColumnDef="typeDescription">
+<th mat-header-cell *matHeaderCellDef mat-sort-header> Type Description   </th>
+<td mat-cell *matCellDef="let element"> {{element.typeDescription}} </td>
+</ng-container>
+
+
+<ng-container matColumnDef="quantity">
+<th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity    </th>
+<td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+</ng-container>
+
+
+
+<tr mat-header-row *matHeaderRowDef="displayedColumnsProjmaterial"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumnsProjmaterial;"></tr>
+
+
+
+</table>
+
+
+
+&nbsp;&nbsp;&nbsp;<br>
+   </mat-card>
+
+
+
+</mat-card>
+
+
+    <br>
+<mat-card>
+
+  <h2 style="margin-left:45% ;"> Project's Material Request</h2>
+
+  <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+
+    <mat-card  fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+    <div  >
+
+      <div   >
+      <div *ngIf = "RequestchartsLoaded">
+
+
+        <div    >
+          <div  >
+            <div >
+              <canvas baseChart
+              [data] = "RequestCountData"
+              [type]="'bar'"
+              [options] = "RequestCountOptions"
+              >
+
+              </canvas>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      </div>
+      </div>
+      <br><br>
+    <h3>
+      <label for="">Total number of Material requests:   &nbsp; {{TotalRequests}}</label>
+    </h3>
+  </mat-card>
+<br><br>
+
+
+<mat-card  fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)"  >
+  <div  >
+
+    <div >
+    <div *ngIf = "chartsLoaded">
+
+
+      <div    >
+        <div  >
+          <div  >
+            <canvas baseChart
+            [data] = "MaterialCompData"
+            [type]="'pie'"
+            [options] = "MaterialCompOptions"
+            >
+
+            </canvas>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    </div>
+    </div>
+  </mat-card>
+
+</div>
+<br><br><br>
+<mat-card>
+  <table mat-table [dataSource]="RequestdataSource" class="mat-elevation-z8" matSort>
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Equipment Name Column -->
+    <ng-container matColumnDef="urgencylevelName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Urgency Lvl </th>
+        <td mat-cell *matCellDef="let element"> {{element.urgencyLevelName}} </td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="RequestDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Request Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.requestDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="statusName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.statusName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="statusUpdateDate">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Satus Update Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.statusUpdateDate}} </td>
+</ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedRequestColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedRequestColumns;"></tr>
+
+
+</table>
+
+</mat-card>
+
+</mat-card>
+
+
+</div>

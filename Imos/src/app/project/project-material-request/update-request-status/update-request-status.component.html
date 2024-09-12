@@ -1,0 +1,23 @@
+<link rel="stylesheet"
+href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<h2 style="margin-left:45% ;">Manage Request Status</h2>
+
+
+<mat-card>
+  <form  [formGroup]="form" >
+    <mat-form-field appearance="outline" class="control-w">
+      <mat-label>Select Status</mat-label>
+      <mat-select formControlName="name"  (change)="ChangeMaterialRequestStatus($event)"  >
+        <mat-option *ngFor="let item of materialRequestData" [value] = "item.id">
+            {{item.name}}
+        </mat-option>
+      </mat-select>
+
+    </mat-form-field>
+  </form>
+
+  <button class="CheckoutBut"  mat-flat-button color="primary" (click)="ManageRequest()">Update Status</button>
+
+
+</mat-card>

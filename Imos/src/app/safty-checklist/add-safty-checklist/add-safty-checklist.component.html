@@ -1,0 +1,48 @@
+<div class="container">
+    <mat-card>
+        <mat-card-header class="header">
+            <mat-card-title>
+                Add New  Project Checklist
+            </mat-card-title>
+        </mat-card-header>
+    </mat-card>
+</div>
+    <form [formGroup]="addForm" class="form-container">
+        <mat-card>
+            <mat-card-content>
+
+                <div class="row">
+                    <mat-form-field appearance="standard">
+                        <mat-label> Project Name Selection </mat-label>
+                        <mat-select formControlName="id">
+                            <mat-option *ngFor="let type of TypeList" [value]="type.id">
+                                {{type.name}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="hasError('id', 'required')">Project Selection  is required
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="standard">
+                        <mat-label> Safety Items </mat-label>
+                        <mat-select formControlName="safetyfileitemId" multiple="true">
+                            <mat-option *ngFor="let type of SafetyItems" [value]="type.safetyfileitemId">
+                                {{type.name}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="hasError('safetyfileitemId', 'required')">Safety  Name is required
+                        </mat-error>
+                    </mat-form-field>
+                    <div class="btn">
+                        <button mat-raised-button color="primary" type="button" (click)="AddProjectChecklist()"
+                            [disabled]="!addForm.valid">Add
+                        </button>
+                        &nbsp;
+                        <button mat-raised-button color="warn" type="button" (click)="back()">Back</button>
+                    </div>
+
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+    </form>

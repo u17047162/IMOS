@@ -1,0 +1,71 @@
+<div>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Update Task</mat-card-title>
+    </mat-card-header>
+
+  <mat-card-content>
+
+    <form class="form" [formGroup]="AddFormGroup">
+
+      <div class="mat-row">
+        <div class="mat-col-quarter">
+          <mat-form-field appearance="outline" class="control-w">
+            <mat-label>Select Task Type </mat-label>
+            <mat-select formControlName="tasktypeId"  (change)="ChangeTaskType($event)"  >
+              <mat-option *ngFor="let item of TaskTypeData" [value] = "item.tasktypeId">
+                  {{item.description}}
+              </mat-option>
+            </mat-select>
+        <mat-error *ngIf="hasError('tasktypeId', 'required')">Task Type Required</mat-error>
+
+            <mat-hint align="end">Select Task Type, e.g Repsort to Manager</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="mat-row">
+      <div class="mat-col-quarter">
+        <mat-form-field appearance="outline" class="control-w">
+            <mat-label> Description</mat-label>
+            <textarea class="full-width" matInput placeholder="Enter the description" formControlName="description">
+            </textarea>
+            <mat-error *ngIf="hasError('description', 'required')"> Task Description Required</mat-error>
+
+            <mat-hint>Enter the Description  </mat-hint>
+        </mat-form-field>
+    </div>
+  </div>
+  <div class="mat-row">
+    <div class="mat-col-quarter">
+      <mat-form-field appearance="outline" class="control-w">
+          <mat-label> Start Date</mat-label>
+          <input matInput [matDatepicker]="picker1" formControlName="startdate">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1 color="primary"></mat-datepicker>
+          <mat-error *ngIf="hasError('startdate', 'required')"> Start Date  Required</mat-error>
+
+      </mat-form-field>
+  </div>
+</div>
+<div class="mat-col-quarter">
+  <mat-form-field appearance="outline" class="control-w">
+      <mat-label> End Date</mat-label>
+      <input matInput [matDatepicker]="picker2" formControlName="enddate">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2 color="primary"></mat-datepicker>
+      <mat-error *ngIf="hasError('enddate', 'required')"> End Date  Required</mat-error>
+
+  </mat-form-field>
+</div>
+
+    </form>
+  </mat-card-content>
+  <button mat-stroked-button color="primary" class="btn-block" [disabled]="!AddFormGroup.valid"  (click)="UpdateTask()">Update Task </button>
+
+  </mat-card>
+
+
+  </div>

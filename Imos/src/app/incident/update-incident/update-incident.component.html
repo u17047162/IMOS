@@ -1,0 +1,23 @@
+<app-header></app-header>
+
+<div class="main">
+
+    <h1>Update Incident</h1>
+
+    <form [formGroup]="incidentFrm" class="addSupplier">
+
+        <div class="row">
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Incident Description" name="Description" #nameinput formControlName="description">
+                <mat-error *ngIf="hasError('description', 'required')">The Description is required</mat-error>
+                <mat-error *ngIf="hasError('description', 'pattern')">No more than 100 Characters</mat-error>
+            </mat-form-field>
+            <div class="btn">
+                <button (click)="updateIncident()" mat-raised-button color="primary"
+                    [disabled]="incidentFrm.invalid!">Update</button>
+                &nbsp;
+                <button (click)="back()" mat-raised-button color="warn">back</button>
+            </div>
+        </div>
+    </form>
+</div>

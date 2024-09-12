@@ -1,1 +1,80 @@
-<p>add-material works!</p>
+<app-header></app-header>
+
+
+
+<div class="main">
+
+    <h1>Add New Material</h1>
+
+<form [formGroup]="materialFrm"  class="addMaterial">
+    <mat-card>
+
+        <mat-card-content>
+
+            <div class="row">
+                <mat-form-field appearance="standard">
+                    <mat-label>Select  Material Type</mat-label>
+                    <mat-select formControlName="materialtypeId">
+                        <mat-option *ngFor="let type of TypeList" [value]="type.materialtypeId">
+                            {{type.name}}
+                        </mat-option>
+                      </mat-select>
+                      <!--<mat-error *ngIf="hasError('materialtypeId', 'required')">Material Type is required</mat-error> -->
+                      
+                </mat-form-field>
+
+                <mat-form-field  appearance="standard">
+                    <mat-label>Select Warehouse </mat-label>
+                    <mat-select formControlName="warehouseId" multiple>
+                        <mat-option *ngFor="let type of WarehouseTypes" [value]="type.id">
+                            {{type.name}}
+                        </mat-option>
+                      </mat-select>
+                      <!-- <mat-error *ngIf="hasError('warehouseId', 'required')">Warehouse is required</mat-error>
+
+
+                      -->
+                      
+                </mat-form-field>
+
+                <mat-form-field  appearance="standard">
+                    <mat-label>Name</mat-label>
+                    <input matInput  placeholder="Enter Name" #nameInput  formControlName="name">
+                        <mat-error>Name is required</mat-error> 
+                      <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
+                     <mat-error *ngIf="hasError('name', 'pattern')">Please enter a letter only name</mat-error>
+                     <mat-error *ngIf="hasError('name', 'maxlength')">25 Characters maximum is required for a full name</mat-error>
+                </mat-form-field>
+
+                <mat-form-field  appearance="standard">
+                    <input matInput placeholder="Description" #nameInput  formControlName="description">
+                                     <mat-error>Description is required</mat-error> 
+                                    <mat-error *ngIf="hasError('description', 'required')">Description is required</mat-error>
+                    <mat-error *ngIf="hasError('name', 'maxlength')">50 Characters maximum is required for a description</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="standard">
+                    <mat-label>Quantity</mat-label>
+                    <input type="number" min="1" max="1000" matInput  #nameInput  formControlName="quantity">
+                                  <mat-error *ngIf="hasError('quantity', 'required')">Quantity is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Select Supplier</mat-label>
+                    <mat-select formControlName="supplierId" multiple>
+                        <mat-option *ngFor="let type of SupplierList" [value]="type.id">
+                        {{type.name}}
+                    </mat-option>
+                    </mat-select>
+                </mat-form-field> 
+
+                <mat-card-actions>
+                    <button (click)="AddMaterial()" mat-raised-button color="primary">Add</button>
+                    <button (click)="back()" mat-raised-button color="warn">back</button>
+                </mat-card-actions>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</form>
+
+</div>

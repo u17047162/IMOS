@@ -1,0 +1,69 @@
+<app-header></app-header>
+
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success !</strong> Warehouse updated Successfully
+    <button mat-button color="warn" (click)="closeAlert()" class="close" data-dismiss="alert" aria-label="Close">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div class="main">
+
+    <h1>Update Warehouse</h1>
+
+    <form [formGroup]="updateForm" class="addSupplier" (ngSubmit)="onSubmit()">
+
+        <div>
+            <mat-card>
+                <mat-card-content>
+                    <div class="row">
+                        <mat-form-field class="full-width">
+                            <mat-label>Name</mat-label>
+                            <input matInput placeholder=" Warehouse Name" #nameInput formControlName="name">
+                            <mat-error *ngIf="formdet['name'].touched && formdet['name'].invalid">
+                                <mat-error *ngIf="formdet['name'].errors?.['required'] && formdet['name'].dirty">Name is
+                                    required
+                                </mat-error>
+                                <mat-error *ngIf="formdet['name'].errors?.['pattern'] && formdet['name'].dirty">Please
+                                    enter
+                                    a
+                                    letter only name</mat-error>
+                                <mat-error *ngIf="formdet['name'].errors?.['maxlength'] && formdet['name'].dirty">25
+                                    Characters
+                                    maximum is required for a full name</mat-error>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Location/Address" #nameInput formControlName="description">
+                            <mat-error *ngIf="formdet['description'].touched && formdet['description'].invalid">
+                                <mat-error
+                                    *ngIf="formdet['description'].errors?.['required'] && formdet['description'].dirty">
+                                    Location/Address is
+                                    required</mat-error>
+                                <mat-error
+                                    *ngIf="formdet['description'].errors?.['minlength'] && formdet['description'].dirty">
+                                    10
+                                    Characters minimum is required for Location/Address</mat-error>
+                                <mat-error
+                                    *ngIf="formdet['description'].errors?.['maxlength'] && formdet['description'].dirty">
+                                    40
+                                    Characters maximum is required for Location/Address</mat-error>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <div class="btn">
+
+                            <mat-card-actions>
+                                <button mat-raised-button color="primary" [disabled]="!updateForm.valid">Update</button>
+                                <button (click)="back()" mat-raised-button color="warn">Back</button>
+                            </mat-card-actions>
+
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </form>
+
+</div>

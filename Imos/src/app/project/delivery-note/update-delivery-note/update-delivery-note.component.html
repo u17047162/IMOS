@@ -1,0 +1,87 @@
+<app-header></app-header>
+
+<div class="main">
+
+    <h1>Update Delivery Note</h1>
+
+    <form [formGroup]="updateForm" class="addSupplier">
+        <div class="row">
+
+            <mat-form-field appearance="standard">
+                <mat-label>Project</mat-label>
+                <mat-select formControlName="projectID">
+                    <mat-option *ngFor="let type of Project" [value]="type.id">
+                        {{type.id}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="formdet['projectID'].touched && formdet['projectID'].invalid">
+                    <mat-error *ngIf="formdet['projectID'].errors?.['required'] && formdet['projectID'].dirty">
+                        Project is required</mat-error>
+                </mat-error>
+                <mat-hint>Select a Project</mat-hint>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="standard">
+                <mat-label>Supplier</mat-label>
+                <mat-select formControlName="supplierID">
+                    <mat-option *ngFor="let type of Supplier" [value]="type.id">
+                        {{type.name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="formdet['supplierID'].touched && formdet['supplierID'].invalid">
+                    <mat-error *ngIf="formdet['supplierID'].errors?.['required'] && formdet['supplierID'].dirty">
+                        Supplier is required</mat-error>
+                </mat-error>
+                <mat-hint>Select the Supplier</mat-hint>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="standard">
+                <mat-label>Material</mat-label>
+                <mat-select formControlName="materialID">
+                    <mat-option *ngFor="let type of Material" [value]="type.materialId">
+                        {{type.name}}
+                    </mat-option>
+                </mat-select>
+                <mat-hint>Select your material</mat-hint>
+                <mat-error *ngIf="formdet['materialID'].touched && formdet['materialID'].invalid">
+                    <mat-error *ngIf="formdet['materialID'].errors?.['required'] && formdet['materialID'].dirty">
+                        Material is required</mat-error>
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width" appearance="standard">
+                <mat-label>Choose a Date</mat-label>
+                <input matInput [matDatepicker]="picker" placeholder="MM/DD/YY" formControlName="date">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="formdet['date'].touched && formdet['date'].invalid">
+                    <mat-error *ngIf="formdet['date'].errors?.['required'] && formdet['date'].dirty">Date is required
+                    </mat-error>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Delivery Note</mat-label>
+                <input  matInput placeholder="Image" formControlName="deliveryNote" #nameInput>
+                <mat-hint>Select an Image</mat-hint>
+                <mat-error *ngIf="formdet['deliveryNote'].touched && formdet['deliveryNote'].invalid">
+                    <mat-error *ngIf="formdet['deliveryNote'].errors?.['required'] && formdet['deliveryNote'].dirty">
+                        Delivery Note is required</mat-error>
+                </mat-error>
+            </mat-form-field>
+
+            <div class="btn">
+                <button mat-raised-button color="primary" type="button"
+                    [disabled]="!updateForm.valid">Update
+                </button>
+                &nbsp;
+                <button mat-raised-button color="warn" type="button" (click)="back()">Back</button>
+            </div>
+
+        </div>
+    </form>
+</div>

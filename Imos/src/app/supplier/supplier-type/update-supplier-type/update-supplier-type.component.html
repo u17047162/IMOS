@@ -1,26 +1,34 @@
-<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>Success !</strong> Supplier Type Updated Successfully
-    <button mat-button color="warn" (click)="closeAlert()" class="close" data-dismiss="alert" aria-label="Close">
-        <mat-icon>close</mat-icon>
-    </button>
-</div>
+<app-header></app-header>
 
-<form [formGroup]="supplierTypeFrm" class="form-container">
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title>Update Supplier Type</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="row">
-                <mat-form-field class="full-width">
-                    <input [(ngModel)]='Name1' matInput placeholder="Material Type Name" name="Name"
-                        formControlName="Name">
-                </mat-form-field>
-                <mat-error *ngIf="hasError('Name', 'required')"></mat-error>
-                <mat-card-actions>
-                    <button (click)="updateSupplierT()" mat-raised-button color="primary">Update</button>
-                </mat-card-actions>
+<div class="main">
+
+    <h1>Update Supplier Type</h1>
+
+    <form [formGroup]="supplierTypeFrm" class="addSupplier">
+        <div class="row">
+            <mat-form-field class="standard">
+                <mat-label>Type Name</mat-label>
+                <input matInput placeholder="Candy Corp" name="Name" #nameInput formControlName="Name">
+                <mat-error *ngIf="formdet['Name'].touched && formdet['Name'].invalid">
+                    <mat-error *ngIf="formdet['Name'].errors?.['required'] && formdet['Name'].dirty">Name is required
+                    </mat-error>
+                    <mat-error *ngIf="formdet['Name'].errors?.['pattern'] && formdet['Name'].dirty">Please enter a
+                        letter
+                        only name</mat-error>
+                    <mat-error *ngIf="formdet['Name'].errors?.['maxlength'] && formdet['Name'].dirty">15 Characters
+                        maximum
+                        is required for a type</mat-error>
+                </mat-error>
+            </mat-form-field>
+
+            <div class="btn">
+                <button mat-raised-button color="primary" type="button" (click)="updateSupplierT()"
+                    [disabled]="!supplierTypeFrm.valid">Update
+                </button>
+                &nbsp;
+                <button mat-raised-button color="warn" type="button" (click)="back()">Back</button>
             </div>
-        </mat-card-content>
-    </mat-card>
-</form>
+        </div>
+    </form>
+
+</div>

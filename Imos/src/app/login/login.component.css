@@ -5,7 +5,7 @@
 }
 
 .login{
-    position: relative; 
+  /* position: relative; */
     top: 18%;
     left: 0%;
 }
@@ -39,6 +39,7 @@
     margin-left: 8px;
     position: relative;
     right: 10%;
+    padding-left: 8rem;
 }
 
 .example-right-align {
@@ -63,6 +64,7 @@ input.example-right-align {
 .username {
     position: relative;
     right: 10%;
+    margin-left: 50px;
 }
 
 button {

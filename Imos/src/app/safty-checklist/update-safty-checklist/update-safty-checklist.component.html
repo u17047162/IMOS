@@ -1,0 +1,44 @@
+<app-header></app-header>
+<button class="btnBack" mat-raised-button color="warn" routerLink="/Project">Back</button>
+
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success !</strong>  Update  Project Safety Checklist Added Successfully
+    <button mat-button color="warn" (click)="closeAlert()" class="close" data-dismiss="alert" aria-label="Close">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<form [formGroup]="updateForm" class="form-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Add New Project Safety Checklist</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field class="fill">
+                <mat-label>Select  Project To Create CheckList For</mat-label>
+                <mat-select formControlName="projectId">
+                    <mat-option *ngFor="let type of TypeList" [value]="type.name">
+                        {{type.name}}
+                    </mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-accordion>
+                <mat-expansion-panel class="parentPanel" *ngFor="let type of CategoryTypes" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header> 
+                        <mat-panel-title > {{type.safetyfileitemId}}</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Select Safety Item</mat-label>
+                        <mat-select formControlName="safetyfileitemId" multiple>
+                         <mat-option *ngFor="let SafetyItems of SafetyItems" [value]="SafetyItems.id">
+                            {{SafetyItems.name}}
+                        </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="back()" mat-raised-button color="warn">back</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

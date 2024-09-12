@@ -26,7 +26,7 @@ export class SupplierTypeComponent implements OnInit {
   // API Test
   data: suppliertype[] = [];
 
-  displayedColumns: string[] = ['id', 'name', 'actions'];
+  displayedColumns: string[] = ['name', 'actions'];
 
   dataSource!: MatTableDataSource<SupplierType>;
 
@@ -61,9 +61,8 @@ export class SupplierTypeComponent implements OnInit {
     }
   }
 
-  UpdateSupplierType(element: any) {
-    this.type = element;
-    this.hide = true;
+  UpdateSupplierType(id: any) {
+    this.route.navigateByUrl('/UpdateSupplierType/'+id)
   }
 
    closeClick(){
@@ -79,11 +78,6 @@ export class SupplierTypeComponent implements OnInit {
       this.dataSource.sort = this.sort;
   })
 } 
-
-
-
-
-
   addSupplierType() {
     this.route.navigateByUrl('/AddSupplierType')
   }

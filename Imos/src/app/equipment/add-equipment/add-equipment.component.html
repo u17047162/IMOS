@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<div class="main">
+
+    <h1>Add New Equipment</h1>
+    <form [formGroup]="form" class="addSupplier">
+        <div class="row">
+            <mat-form-field appearance="standard">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Type name" #nameInput formControlName="name">
+                <mat-error>Name is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Description</mat-label>
+                <input matInput placeholder="Enter description" #nameInput formControlName="description">
+                <mat-error>Description is required</mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="full-width">
+                <mat-label>Select Warehouse </mat-label>
+                <mat-select formControlName="id" multiple>
+                    <mat-option *ngFor="let type of WarehouseTypes" [value]="type.id">
+                        {{type.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Quantity</mat-label>
+                <input type="number" min="1" max="1000" matInput  #nameInput  formControlName="quantity">
+                <mat-error>Quantity is required</mat-error>
+            </mat-form-field>
+
+            <div class="btn">
+                <mat-card-actions>
+                    <button (click)="addEquipment()" mat-raised-button color="primary">Add</button>
+                    &nbsp;
+                    <button (click)="back()" mat-raised-button color="warn">back</button>
+                </mat-card-actions>
+            </div>
+        </div>
+
+    </form>
+
+</div>

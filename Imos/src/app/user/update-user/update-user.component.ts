@@ -3,7 +3,6 @@ import { HttpEventType } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ServiceService, userrole, user, employee} from 'src/app/services/service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-update-user',

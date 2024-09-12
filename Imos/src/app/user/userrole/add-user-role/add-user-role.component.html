@@ -1,0 +1,31 @@
+<app-header></app-header>
+
+<div class="main">
+
+    <h1> Add New User Role</h1>
+</div>
+<form [formGroup]="userRoleFrm" class="addUserRole">
+    <mat-card>
+      
+        <mat-card-content>
+
+            <div class="row">
+                <mat-form-field appearance="standard">
+                    <input matInput placeholder="User Role Name"
+                        formControlName="description">
+                        <mat-error *ngIf="hasError('description', 'required')">User Role name is required</mat-error>
+                        <mat-error *ngIf="hasError('description', 'pattern')">Enter user role name with letters only</mat-error>
+                        <mat-error *ngIf="hasError('description', 'maxlength')">25 characters maximum</mat-error>
+                </mat-form-field>
+
+                <div class="btn">
+                    <button mat-raised-button color="primary" type="button" (click)="addRole()"
+                        [disabled]="!userRoleFrm.valid">Add
+                    </button>
+                    &nbsp;
+                    <button mat-raised-button color="warn" type="button" (click)="back()">Back</button>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</form>

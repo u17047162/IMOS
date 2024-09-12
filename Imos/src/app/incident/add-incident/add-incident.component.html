@@ -1,0 +1,42 @@
+<app-header></app-header>
+
+
+<div class="main">
+
+    <h1> Add New Incident</h1>
+
+    <form [formGroup]="incidentFrm" class="addIncident">
+        <mat-card>
+
+            <mat-card-content>
+                <div class="row">
+
+                    <mat-form-field class="full-width">
+                        <mat-label>Select Project</mat-label>
+                        <mat-select formControlName="ProjectID">
+                            <mat-option *ngFor="let type of ProjectList" [value]="type.id">
+                                {{type.name}}
+                            </mat-option>
+                            
+                          </mat-select>
+                          <mat-error *ngIf="hasError('ProjectID', 'required')">Project is required</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="standard">
+                        <input [(ngModel)]='Description' matInput placeholder="Incident Description" name="Description"
+                            formControlName="Description">
+                        <mat-error *ngIf="hasError('Description', 'required')">Description is required</mat-error>
+                        <mat-error *ngIf="hasError('Description', 'pattern')">Enter letter only description</mat-error>
+                        <mat-error *ngIf="hasError('Description', 'maxlength')">100 Characters maximum is required for a
+                            description</mat-error>
+                    </mat-form-field>
+
+
+                    <div class="btn">
+                        <button mat-raised-button color="primary" type="button" (click)="addIncident()"
+                            [disabled]="!incidentFrm.valid">Add
+                        </button>
+                        &nbsp;
+                        <button mat-raised-button color="warn" type="button" (click)="back()">Back</button>
+                    </div>
+                </div>

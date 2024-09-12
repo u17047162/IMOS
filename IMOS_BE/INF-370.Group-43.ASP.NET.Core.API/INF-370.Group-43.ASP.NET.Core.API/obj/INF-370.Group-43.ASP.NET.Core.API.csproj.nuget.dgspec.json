@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\INF-370.Group-43.ASP.NET.Core.API\\INF-370.Group-43.ASP.NET.Core.API.csproj": {}
+    "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\INF-370.Group-43.ASP.NET.Core.API\\INF-370.Group-43.ASP.NET.Core.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\Group43.Communication.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\Group43.Communication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\Group43.Communication.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\Group43.Communication.csproj",
         "projectName": "Group43.Communication",
-        "projectPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\Group43.Communication.csproj",
-        "packagesPath": "C:\\Users\\user-pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\Group43.Communication.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\user-pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -47,6 +43,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.16, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.28.0, )"
             }
           },
           "imports": [
@@ -64,26 +64,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\Group43.Core.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\Group43.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\Group43.Core.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\Group43.Core.csproj",
         "projectName": "Group43.Core",
-        "projectPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\Group43.Core.csproj",
-        "packagesPath": "C:\\Users\\user-pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\Group43.Core.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\user-pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -96,8 +92,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\Group43.Communication.csproj": {
-                "projectPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\Group43.Communication.csproj"
+              "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\Group43.Communication.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\Group43.Communication.csproj"
               }
             }
           }
@@ -146,26 +142,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Data\\Group43.Data.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Data\\Group43.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Data\\Group43.Data.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Data\\Group43.Data.csproj",
         "projectName": "Group43.Data",
-        "projectPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Data\\Group43.Data.csproj",
-        "packagesPath": "C:\\Users\\user-pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Data\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Data\\Group43.Data.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\user-pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -178,8 +170,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\Group43.Core.csproj": {
-                "projectPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\Group43.Core.csproj"
+              "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\Group43.Core.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\Group43.Core.csproj"
               }
             }
           }
@@ -224,26 +216,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Services\\Group43.Services.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Services\\Group43.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Services\\Group43.Services.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Services\\Group43.Services.csproj",
         "projectName": "Group43.Services",
-        "projectPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Services\\Group43.Services.csproj",
-        "packagesPath": "C:\\Users\\user-pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Services\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Services\\Group43.Services.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Services\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\user-pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -256,14 +244,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\Group43.Communication.csproj": {
-                "projectPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\Group43.Communication.csproj"
+              "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\Group43.Communication.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\Group43.Communication.csproj"
               },
-              "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\Group43.Core.csproj": {
-                "projectPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\Group43.Core.csproj"
+              "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\Group43.Core.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\Group43.Core.csproj"
               },
-              "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Data\\Group43.Data.csproj": {
-                "projectPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Data\\Group43.Data.csproj"
+              "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Data\\Group43.Data.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Data\\Group43.Data.csproj"
               }
             }
           }
@@ -292,26 +280,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\INF-370.Group-43.ASP.NET.Core.API\\INF-370.Group-43.ASP.NET.Core.API.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\INF-370.Group-43.ASP.NET.Core.API\\INF-370.Group-43.ASP.NET.Core.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\INF-370.Group-43.ASP.NET.Core.API\\INF-370.Group-43.ASP.NET.Core.API.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\INF-370.Group-43.ASP.NET.Core.API\\INF-370.Group-43.ASP.NET.Core.API.csproj",
         "projectName": "INF-370.Group-43.ASP.NET.Core.API",
-        "projectPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\INF-370.Group-43.ASP.NET.Core.API\\INF-370.Group-43.ASP.NET.Core.API.csproj",
-        "packagesPath": "C:\\Users\\user-pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\INF-370.Group-43.ASP.NET.Core.API\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\INF-370.Group-43.ASP.NET.Core.API\\INF-370.Group-43.ASP.NET.Core.API.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\INF-370.Group-43.ASP.NET.Core.API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\user-pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -324,17 +308,17 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\Group43.Communication.csproj": {
-                "projectPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\Group43.Communication.csproj"
+              "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\Group43.Communication.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Communication\\Group43.Communication.csproj"
               },
-              "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\Group43.Core.csproj": {
-                "projectPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\Group43.Core.csproj"
+              "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\Group43.Core.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Core\\Group43.Core.csproj"
               },
-              "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Data\\Group43.Data.csproj": {
-                "projectPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Data\\Group43.Data.csproj"
+              "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Data\\Group43.Data.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Data\\Group43.Data.csproj"
               },
-              "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Services\\Group43.Services.csproj": {
-                "projectPath": "C:\\Users\\user-pc\\Desktop\\IMOSCode\\IMOS_FE\\IMOS_FrontEnd\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Services\\Group43.Services.csproj"
+              "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Services\\Group43.Services.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Team-43-IMOS\\Team-43-IMOS\\IMOS_BE\\INF-370.Group-43.ASP.NET.Core.API\\Group43.Services\\Group43.Services.csproj"
               }
             }
           }
@@ -349,6 +333,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.16, )"
@@ -386,7 +374,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }

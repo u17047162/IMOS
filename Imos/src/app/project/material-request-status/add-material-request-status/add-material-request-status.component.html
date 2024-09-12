@@ -1,0 +1,23 @@
+<div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Add Material Request Status</mat-card-title>
+      </mat-card-header>
+  
+      <mat-card-content>
+        <form class="form" [formGroup]="AddRequestStatusFormGroup">
+          <mat-form-field class="full-width">
+            <mat-label>Name </mat-label>
+            <input matInput placeholder="Enter the Name" formControlName="name">
+            <mat-hint> Request Status Name</mat-hint>
+            <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+  
+      <button mat-stroked-button color="primary" class="btn-block" [disabled]="!AddRequestStatusFormGroup.valid" (click)="AddRequestStatus()">Add Material Request Status</button>
+  
+  
+    </mat-card>
+  
+  </div>

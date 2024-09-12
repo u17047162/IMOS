@@ -1,0 +1,60 @@
+.mat-card {
+  background-color: rgba(21, 210, 210, 0.274);
+  border-radius: 20px;
+}
+
+.quantity{
+  width: 60%;
+  float: left;
+  margin-bottom: 5%;
+  background-color: rgb(244, 228, 228);
+}
+.cartButton{
+ float: right;
+ /* margin-top: 5%;*/
+  padding-top: 0;
+    padding-bottom: 0;
+
+}
+
+.card{
+
+  background-color:rgb(255, 255, 255);
+}
+.content {
+  padding: 16px;
+}
+
+
+
+.content > mat-card {
+  margin-bottom: 16px;
+}
+
+
+.Materialcard{
+ /* max-width: 40px;
+
+  margin-bottom: 8px;
+  max-height: 30px;*/
+
+  width: 200px;
+  height: 200px;
+}
+
+.example-card {
+  max-width: 400px;
+  margin-bottom: 8px;
+  max-height: 300px;
+}
+.grid-list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  background: #fff;
+  text-decoration: none;
+  padding: 4px;
+  width: calc(100% - 10px);
+
+  }

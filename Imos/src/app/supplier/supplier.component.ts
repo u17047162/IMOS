@@ -28,7 +28,7 @@ export class SupplierComponent implements OnInit {
   // API Test
   data: supplier[] = [];
 
-  displayedColumns: string[] = ['id', 'suppliertype', 'name', 'address', 'email', 'contactnumber', 'actions'];
+  displayedColumns: string[] = [ 'suppliertype', 'name', 'address', 'email', 'contactNumber', 'actions'];
 
   dataSource!: MatTableDataSource<Supplier>;
 
@@ -54,6 +54,9 @@ export class SupplierComponent implements OnInit {
       this.dataSource.sort = this.sort;
     })
   }
+  ngOnInit(): void {
+    this.service.getSupplierType().subscribe(x => { this.TypeList = x; console.log("type", this.TypeList) });
+  }
 
   applyFilter(event: Event) {
     const FilterValue = (event.target as HTMLInputElement).value;
@@ -64,8 +67,10 @@ export class SupplierComponent implements OnInit {
     }
   }
 
-  UpdateSupplier() {
-    this.route.navigateByUrl('/UpdateSupplier')
+  UpdateSupplier(id:number) {
+    //console.log("Test " +id)
+    this.route.navigateByUrl('/UpdateSupplier/'+id)
+    
   }
 
   addSupplier() {
@@ -88,10 +93,12 @@ export class SupplierComponent implements OnInit {
   supplierType() {
     this.route.navigateByUrl('/suppliertype')
   }
-
-  ngOnInit(): void {
-    this.service.getSupplierType().subscribe(x => { this.TypeList = x; console.log("type", this.TypeList) });
+  supplierOrder(){
+    this.route.navigateByUrl('/supplierOrder')
 
   }
+
+
+
 
 }

@@ -1,0 +1,73 @@
+<link rel="stylesheet"
+href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<h2 style="margin-left:45% ;">Select Material <span class="material-symbols-outlined">
+  format_paint
+  </span></h2>
+
+  <button mat-raised-button
+  matTooltip="  Select material and add them to a basket "
+  aria-label="Select material and add them to a basket">
+  <mat-icon>help_center</mat-icon>
+</button>
+<br>
+<br>
+
+
+ <br>
+
+<button (click)="openDialog(this.data.projectMaterialId)"  id="ViewBasket" mat-flat-button color="primary" > View Basket
+  <span class="material-symbols-outlined">
+    shopping_basket
+    </span>
+</button>
+&nbsp;
+
+<br>
+
+<br>
+<br>
+<mat-card class="example-card">
+  <form  [formGroup]="form" >
+    <mat-form-field appearance="outline" class="control-w">
+      <mat-label>Select Task Description</mat-label>
+      <mat-select formControlName="description"  (change)="ChangeMaterialRequestStatus($event)"  >
+        <mat-option *ngFor="let item of tasksData" [value] = "item.taskId">
+            {{item.description}}
+        </mat-option>
+      </mat-select>
+
+    </mat-form-field>
+  </form>
+</mat-card>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-3" *ngFor=" let material of materiallist"   style="width: 15rem; height: 15rem;">
+    <div class="card"   >
+      <div class="card-body">
+        <h2 class="card-title"> {{material.name}}</h2>
+        <p class="card-text"> {{material.materialtype}}.</p>
+
+      <md-input-container >
+
+
+        <form class="form" [formGroup]="materialForm">
+        <div class="input-group mb-3">
+          <input type="number" class="form-control"[min]="0" formControlName="quanitity" placeholder="Quantity" aria-label="Quantity" aria-describedby="basic-addon2" onkeypress="return event.charCode >= 48"  id="quantity({{material.id}})" />
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary text-success " color="warn"  (click)="addToBasket(material)"  type="button"> <span class="material-symbols-outlined">
+              add
+              </span></button>
+          </div>
+        </div>
+
+      </form>
+    </md-input-container>
+      </div>
+    </div>
+  </div>
+
+</div>
+

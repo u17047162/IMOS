@@ -1,4 +1,5 @@
-﻿using Group43.Core.Employees;
+﻿using Group43.Core.Documents;
+using Group43.Core.Employees;
 using Group43.Core.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -27,15 +28,16 @@ namespace Group43.Data.Context
         protected override void OnModelCreating(ModelBuilder builder)
         {
             // configure Employee & User   Entity relationships 
-            builder.Entity<Employee>()
-                 .HasOne(a => a.AppUser)
-                .WithOne(b => b.Employee)
-                .HasForeignKey<Employee>(b => b.AppUser);
+            builder.Entity<AppUser>()
+                 .HasOne(a => a.Employee)
+                .WithOne(b => b.AppUser)
+                .HasForeignKey<Employee>(b => b.AppUserId);
             base.OnModelCreating(builder);
         }
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<AppRole> AppRoles { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Document> Documents { get; set; }
 
     } 
 }

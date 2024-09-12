@@ -14,10 +14,17 @@ namespace Group43.Core.Identity
     {
         [Required]
         [MaxLength(50)]
+        public string Name { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        public string Surname { get; set; }
+
+        [Required]
+        [MaxLength(50)]
         public string AutoAssignedPassword { get; set; }
 
         public virtual Employee Employee { get; set; }
-        public string EmployeeId { get; set; }
 
     }
 }

@@ -1,0 +1,31 @@
+
+
+<div  >
+
+<div  id="htmlData" #htmlData >
+<div *ngIf = "chartsLoaded">
+
+
+  <div    >
+    <div  >
+      <div  >
+        <canvas baseChart
+        [data] = "requestCountData"
+        [type]="'bar'"
+        [options] = "requestCountOptions"
+        >
+
+        </canvas>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+</div>
+</div>
+
+
+<br>
+
+<button class="CheckoutBut" (click)="downloadPDF()"  mat-flat-button color="primary"> Download PDF</button>

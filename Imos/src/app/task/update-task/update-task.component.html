@@ -1,0 +1,87 @@
+<app-header></app-header>
+
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success !</strong> Task Updated Successfully
+    <button mat-button color="warn" (click)="closeAlert()" class="close" data-dismiss="alert" aria-label="Close">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<mat-card>Update New Task </mat-card>
+
+    <form [formGroup]="form"  class="form-container">
+        
+      
+      
+      <div>
+        <mat-form-field appearance="standard">
+            <mat-label> Task type</mat-label>
+            <mat-select formControlName="tasktypeId">
+              <mat-option *ngFor="let lolo of Tasktypes" [value]="lolo.tasktype1">
+                  {{lolo.description}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field> 
+    </div>
+
+      
+      
+      <div>
+
+          <mat-form-field appearance="standard">
+            <mat-label>Users</mat-label>
+            <mat-select formControlName="userName">
+              <mat-option *ngFor="let lolo of Users" [value]="lolo.userId">
+                  {{lolo.username}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field> 
+
+        </div >
+
+
+        <div>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a start date</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="startdate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+
+        </div>
+
+
+
+        <div>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a your date</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="enddate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+          
+        </div>
+
+
+
+        <div>
+            <h4>QNA passed:</h4>
+            <h5>Check the box below if qna is passed OR leave it if qna is not passed.</h5>
+            <input #saveUserNameCheckBox
+      id="saveUserNameCheckBox" 
+      type="checkbox" 
+      [checked]="saveUsername" 
+      (change)="onSaveUsernameChanged(saveUserNameCheckBox.checked)" formControlName="qnapassed">
+          </div>
+
+      <div>
+          
+                <button mat-raised-button color="primary" type="button" (click)="UpdateTask()">Update</button>
+                <button mat-raised-button color="warn" type="button" (click)="Cancel()">Cancel</button>
+        </div>
+   
+    </form>

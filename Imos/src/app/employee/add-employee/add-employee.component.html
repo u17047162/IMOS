@@ -1,38 +1,59 @@
+<app-header></app-header>
 
-<form [formGroup]="addEmployeeForm" (submit)="createEmployee()">
-    <div class="example-container">
-        <h3>Create an Employee</h3>
+<div class="main">
 
-        <mat-form-field hintLabel="Max 20 characters" appearance="fill">
-            <mat-label>Enter your full name</mat-label>
-            <input matInput #input maxlength="20" placeholder="Ex. Chase Nel">
-            <mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
-        </mat-form-field>
+  <h1>Add New Employee</h1>
+  <form [formGroup]="employeeFrm" class="addSupplier">
+    <div class="row">
+      <mat-form-field class="full-width">
+        <input [(ngModel)]='Name' matInput placeholder="Name" name="Name" type="text" formControlName="Name">
+      </mat-form-field>
+      <mat-error *ngIf="hasError('Name', 'required')"></mat-error>
 
-        <br>
+      <mat-form-field class="full-width">
+        <input [(ngModel)]='Email' matInput placeholder="Email" name="Email" type="email" formControlName="Email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+      </mat-form-field>
+      <mat-error *ngIf="hasError('Email', 'required')"></mat-error>
+      <mat-error *ngIf="hasError('Email', 'pattern')">Enter valid email</mat-error>
 
-        <mat-form-field appearance="fill">
-            <mat-label>Enter your email</mat-label>
-            <input matInput placeholder="pat@example.com" [formControl]="email" required>
-            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-        </mat-form-field>
+      <mat-form-field class="full-width">
+        <input [(ngModel)]='ContactNumber' matInput placeholder="Contact Number" name="ContactNumber" type="text"
+          formControlName="ContactNumber">
+      </mat-form-field>
+      <mat-error *ngIf="hasError('ContactNumber', 'required')"></mat-error>
+      <mat-error *ngIf="hasError('ContactNumber', 'maxlength')">You have more than 10 characters</mat-error>
+      <mat-error *ngIf="hasError('ContactNumber', 'pattern')">Enter numbers only</mat-error>
 
-        <br>
+      <div class="button-side">
+        <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;"
+          accept=".pdf">
+        <button type="button" color='primary' mat-stroked-button matTooltipPosition="after" (click)="file.click()">
+          Select file to upload
+        </button>
+        <span matTooltip="Accepted formats [.pdf,.zip]" class="help-icon">
+          <mat-icon>help_outline</mat-icon>
+        </span>
+      </div>
 
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Contact Number</mat-label>
-            <span matPrefix>+27 &nbsp;</span>
-            <input type="tel" matInput placeholder="082-555-1234">
-            <mat-icon matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-
-        <br>
-
+      <div class="info-side">
+        <span class="upload" *ngIf="progress > 0">
+          {{progress}}%
+        </span>
+        <span class="upload" *ngIf="message">
+          {{message}}
+        </span>
+        <span class="error-message" *ngIf="errorMessage">
+          {{errorMessage}}
+        </span>
+      </div>
+      <div class="btn">
+        <button (click)="addEmployee()" mat-raised-button color="primary">Add</button>
+        &nbsp;
+        <button (click)="back()" mat-raised-button color="warn">back</button>
+      </div>
     </div>
 
-    <button mat-raised-button color="primary">Add Employee</button>
-    &nbsp;
-    <button mat-raised-button color="warn">Cancel</button>
-</form>
+  </form>
 
-
+</div>

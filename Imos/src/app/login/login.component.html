@@ -26,29 +26,28 @@
                 <div class="col-lg-7 text-center py-5">
                     <h1>Welcome to IMOS</h1>
                     <br>
-                    <form [formGroup]="LoginForm" class="form-container" (ngSubmit)="onLogin(LoginForm)">
+
+                    <form [formGroup]="loginForm" class="form-container">
+
                         <div class="example-container">
-                            <mat-form-field appearance="fill" class="username">
+
+                            <mat-form-field appearance="standard" >
                                 <mat-label>Enter your Username</mat-label>
-                                <input matInput formControlName="username" name="username" placeholder="Chase123">
-                                <mat-error *ngIf="loginform.username.errors?.required">
-                                    Username is required
-                                </mat-error>
+                                <input matInput placeholder="example@gmail.com" formControlName="Username">
                             </mat-form-field>
 
-                            <mat-form-field appearance="fill">
+                            <mat-form-field appearance="fill" >
                                 <mat-label>Enter your Password</mat-label>
-                                <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
-                                <mat-error *ngIf="loginform.password.errors?.required">
-                                    Passwrd is required
-                                </mat-error>
+                                <input matInput matInput placeholder="password"  #nameInput  formControlName="Password">
+            
                                 <button mat-icon-button matSuffix (click)="hide = !hide"
                                     [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                 </button>
                             </mat-form-field>
+
                             <br>
-                            <button (click)="login()" [disabled]="!LoginForm.valid" mat-raised-button
+                            <button (click)="LogIn()" mat-raised-button
                                 color="primary">Login</button>
                             &nbsp;
                             <button mat-raised-button color="primary">Forgot Password</button>
@@ -63,5 +62,4 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 </body>
-
 </html>

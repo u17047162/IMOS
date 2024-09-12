@@ -1,0 +1,45 @@
+<app-header></app-header>
+
+<link rel="stylesheet"
+    href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<h2 style="margin-left:45% ;">Help </h2>
+
+<br>
+
+<div>
+  <mat-form-field>
+    <mat-label>Search Subsystem</mat-label>
+    <input matInput  #input  type="text" [(ngModel)]="userFilter.name" placeholder="Subsystem Name">
+
+  </mat-form-field>
+
+<br><br>
+  <ol>
+    <mat-card id="card" *ngFor="let user of users | filterBy: userFilter">
+      <mat-card-title>
+        {{ user.name }}
+      </mat-card-title>
+      &nbsp;
+      <mat-card-content>
+        {{user.description}}
+      </mat-card-content>
+      <button  mat-flat-button  (click)="onClick(user.name)"  color="primary">View {{user.link}} </button>
+      &nbsp;
+    </mat-card>
+<br><br>
+
+&nbsp;&nbsp;
+
+    <!-- in case you want to show empty message -->
+
+
+    <mat-card *ngIf="(users | filterBy: userFilter).length === 0">
+      No matching elements
+
+    </mat-card>
+
+    <br><br>
+  </ol>
+
+</div>

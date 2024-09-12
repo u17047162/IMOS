@@ -1,64 +1,177 @@
 ﻿using IMOSApi.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IMOSApi.Dtos.Task;
+using Microsoft.Data.SqlClient;
+using System.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace IMOSApi.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class TasktypeController : ControllerBase
     {
-        [HttpGet("GetTasktypes")]
-        public IEnumerable<Tasktype> Retrieve()
+        private readonly IMOSContext _dbContext;
+        public TasktypeController(IMOSContext dbContext)
         {
-            using (var context = new IMOSContext())
-            {
-                return context.Tasktypes.ToList();
-            }
-        }
-        [HttpGet("GetTasktype/{id}")]
-        public IEnumerable<Tasktype> Get(int id)
-        {
-            using (var context = new IMOSContext())
-            {
-                IEnumerable<Tasktype> tmp = context.Tasktypes.Where(emp => emp.Tasktype1 == id).ToList();
-                return tmp;
-            }
-        }
-        [HttpPost("CreateTasktype")]
-        public IActionResult Create([FromBody] Tasktype Tasktype)
-        {
-            using (var context = new IMOSContext())
-            {
-                context.Tasktypes.Add(Tasktype);
-                context.SaveChanges();
-                return Ok();
-            }
+            _dbContext = dbContext;
         }
 
-        [HttpPut("UpdateTasktype/{Id}")]
-        public void Update([FromBody] Tasktype Tasktype, [FromRoute] int Id)
-        {
-            using (var context = new IMOSContext())
-            {
-                var clie = context.Tasktypes.Where(clie => clie.Tasktype1 == Id).ToList().FirstOrDefault();
-                //emp.
-                context.SaveChanges();
-            }
-        }
-        [HttpDelete("DeleteEmployee/{Id}")]
-        public void Delete(int id)
-        {
-            using (var context = new IMOSContext())
-            {
-                var clie = context.Tasktypes.Where(clie => clie.Tasktype1 == id).ToList().FirstOrDefault(); ;
-                context.Tasktypes.Remove(clie);
-                context.SaveChanges();
-            }
-        }
+
+        //[HttpGet("GetTasktypes")]
+        //public IEnumerable<Tasktype> Retrieve()
+        //{
+        //    using (var context = new IMOSContext())
+        //    {
+        //        return context.Tasktypes.ToList();
+        //    }
+        //}
+
+
+        //[HttpGet("GetALLTasktypes")]
+        //public List<Tasktype> GetALLTasktypes( )
+        //{
+        //   // List<Tasktype> tasktypes = this._dbContext.GetAllTaskTypes().ToList();
+
+        //    var record = _dbContext.GetAllTaskTypes().ToList();
+
+        //    return record;
+        //}
+
+        //[HttpPost("AddTasktypes")]
+        //public IActionResult AddTasktypes (string Description)
+        //{
+        //    using var context = new IMOSContext();
+        //    var message = "";
+
+        //    var recordInDb = _dbContext.Tasktypes
+        //             .FirstOrDefault(item => item.Description.ToLower() == Description.ToLower());
+
+
+        //    if (recordInDb != null)
+        //    {
+        //        message = "Record already exist";
+        //        return BadRequest(new { message });
+        //    }
+
+            
+        //    try
+        //    {
+        //        var parameters = new[]
+        //        {
+        //             new SqlParameter("@DESCRIPTION", SqlDbType.NVarChar)
+        //             {
+        //              Direction = ParameterDirection.Input,
+        //              Value = Description,
+        //             }
+        //        };
+
+        //        context.Database.ExecuteSqlRaw("exec ADDTASKTYPE @DESCRIPTION", parameters: parameters);
+        //        return Ok();
+
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        message = ex.Message;
+        //        return Ok();
+        //    }
+        //}
+
+
+        //[HttpPut("UpdateTasktypes/{id}")]
+        //public IActionResult AddTasktypes(int id,string Description)
+        //{
+        //    using var context = new IMOSContext();
+        //    var message = "";
+
+        //    var recordInDb = _dbContext.Tasktypes
+        //             .FirstOrDefault(item => item.Description.ToLower() == Description.ToLower());
+
+
+        //    if (recordInDb != null)
+        //    {
+        //        message = "Record already exist";
+        //        return BadRequest(new { message });
+        //    }
+
+
+        //    try
+        //    {
+        //        var parameters = new[]
+        //        {
+        //            new SqlParameter("@TASKTYPE_ID", SqlDbType.Int)
+        //            {
+        //                Direction = ParameterDirection.Input,
+        //                Value=id,
+        //            },
+
+        //             new SqlParameter("@DESCRIPTION", SqlDbType.NVarChar)
+        //             {
+        //              Direction = ParameterDirection.Input,
+        //              Value = Description,
+        //             }
+        //        };
+
+        //        context.Database.ExecuteSqlRaw("exec UPDATETASKTYPE @TASKTYPE_ID, @DESCRIPTION", parameters: parameters);
+        //        return Ok();
+
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        message = ex.Message;
+        //        return Ok();
+        //    }
+
+
+        //}
+
+        //[HttpDelete("DeleteTasktypes/{Id}")]
+        //public async Task<ActionResult<Tasktype>> DeleteTasktypes(int Id)
+        //{
+        //    using var context = new IMOSContext();
+        //    var message = "";
+
+        //    var recordInDb = await _dbContext.Tasktypes.FindAsync(Id);
+
+        //    if (recordInDb == null)
+        //    {
+        //        message = "Record not found";
+        //        return NotFound();
+        //    }
+
+        //    try
+        //    {
+        //        var parameters = new[]
+        //        {
+        //            new SqlParameter("@TASKTYPE_ID", SqlDbType.Int)
+        //            {
+        //                Direction = ParameterDirection.Input,
+        //                Value=Id,
+        //            }
+
+        //        };
+
+        //        context.Database.ExecuteSqlRaw("exec DELETETASKTYPE @TASKTYPE_ID", parameters: parameters);
+        //        return Ok();
+
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        message = ex.Message;
+        //        return Ok();
+        //    }
+
+
+
+        //}
+
     }
 }

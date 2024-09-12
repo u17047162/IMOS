@@ -5,7 +5,7 @@
   <form action="action_page.php"  >
     <label for="subject">Select User Roles</label>
     <select id="country"  formControlName="userRole">
-      <option *ngFor="let item of data"  [value]="item.userrole1"> {{item.description}}</option>
+      <option *ngFor="let item of data"  [value]="item.id"> {{item.description}}</option>
 
     </select>
     <label for="subject">Select Employee</label>

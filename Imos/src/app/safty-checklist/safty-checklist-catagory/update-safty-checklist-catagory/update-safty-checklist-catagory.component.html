@@ -1,0 +1,29 @@
+<app-header></app-header>
+<form [formGroup]="UpdateCategortTypeFormGroup" class="form-container" >
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Upadate Category Type</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div class="row">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Category Name"
+                        formControlName="name">
+                </mat-form-field>
+                <mat-error *ngIf="hasError('name', 'required')"></mat-error>
+                <mat-card-actions>
+                    <div class="btn">
+                        <button mat-raised-button color="primary" type="button" (click)="UpdateCategoryType()"
+                            [disabled]="!UpdateCategortTypeFormGroup.valid">Update
+                        </button>
+                        &nbsp;
+                        <button mat-raised-button color="warn" type="button" (click)="back()">Back</button>
+                    </div>
+                </mat-card-actions>
+            </div>
+        </mat-card-content>
+
+    </mat-card>
+</form>

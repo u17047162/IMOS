@@ -15,3 +15,11 @@ table {
   left: 95%;
   bottom: 76%;
 }
+.form-container{
+    margin: auto;
+    max-width: 700px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: lightgray;
+}
+

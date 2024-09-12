@@ -1,0 +1,10 @@
+.form-container{
+    margin: auto;
+    max-width: 350px;
+    padding: 10px;
+    border-radius: 4px;
+
+}
+.btn{
+    left: 25%
+}

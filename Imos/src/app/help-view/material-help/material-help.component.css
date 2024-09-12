@@ -1,0 +1,15 @@
+#card{
+  margin-bottom: 50px;
+}
+
+
+mat-card img {
+  object-fit: cover;
+  /*this makes the image in src fit to the size specified below*/
+  height: 80%;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}

@@ -1,0 +1,41 @@
+<!-- 
+ <form [formGroup]="addSupplierForm" class=" form-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title class="align" style="margin: right 6px; ;">Add Employee</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field appearance="fill">
+                <mat-label>Supplier Type</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let type of suppliertypes" [value]="type.value">
+                    {{type.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <input [(ngModel)]='Name' matInput placeholder="Name" name="Name" type="text" formControlName="Name">
+                <mat-error *ngIf="hasError('Name', 'required')"></mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <input [(ngModel)]='Address' matInput placeholder="Address" name="Address" type="text" formControlName="Address">
+                <mat-error *ngIf="hasError('Address', 'required')"></mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your email</mat-label>
+                <input [(ngModel)]="email" matInput placeholder="pat@example.com" [formControl]="email" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="ContactNumber" name="ContactNumber" type="text" formControlName="ContactNumber">
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="addSupplier()" mat-raised-button color="primary">Add</button>
+        </mat-card-actions>
+    </mat-card>
+</form> -->
+

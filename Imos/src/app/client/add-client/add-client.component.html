@@ -1,0 +1,25 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Add Client</mat-card-title>
+    </mat-card-header>
+    <form class="form" [formGroup]="AddClientFormGroup">
+      <mat-card-content>
+        <mat-form-field class="full-width">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Enter the client's name" formControlName="CLIENTNAME">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Email Address</mat-label>
+          <input matInput placeholder="Enter a valid Email address" formControlName="CLIENTEMAIL">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Contact Number</mat-label>
+          <input matInput placeholder="Enter Contact Number" formControlName="CONTACTNUMBER">
+        </mat-form-field>
+
+      </mat-card-content>
+      <button mat-stroked-button color="primary" class="btn-block" (click)="AddClient()">Add Client</button>
+    </form>
+  </mat-card>
+</div>

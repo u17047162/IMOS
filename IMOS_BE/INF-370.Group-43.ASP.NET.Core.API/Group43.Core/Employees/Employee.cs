@@ -1,4 +1,5 @@
-﻿using Group43.Core.Identity;
+﻿using Group43.Core.Documents;
+using Group43.Core.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,23 +13,14 @@ namespace Group43.Core.Employees
     {
         public int Id { get; set; }
 
-        [Required]
-        [MaxLength(50)]
-        public string Name { get; set; }
-
-        [Required]
-        [MaxLength(50)]
-        public string Surname { get; set; }
-
-        [Required]
-        [MaxLength(255)]
-        public string Email { get; set; }
-
-        [Required]
-        [MaxLength(50)]
-        public string ContactNumber { get; set; }
-
         public virtual AppUser AppUser { get; set; }
-    }
-    
+        public string AppUserId { get; set; }
+
+        public virtual List<Document> Documents { get; set; }
+
+        public Employee()
+        {
+            Documents = new List<Document>();
+        }
+    }  
 }

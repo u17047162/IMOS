@@ -1,0 +1,33 @@
+<app-header></app-header>
+
+<div class="main">
+
+    <h1> Add New Task Type</h1>
+
+    <form [formGroup]="taskTypeFrm" class="addSupplier">
+        <mat-card>
+
+            <mat-card-content>
+                <div class="row">
+                    <mat-form-field appearance="standard">
+                        <input [(ngModel)]='Description' matInput placeholder="Task Type Description" name="Description"
+                            formControlName="Description">
+                        <mat-error *ngIf="hasError('Description', 'required')">Type description is required </mat-error>
+                        <mat-error *ngIf="hasError('Description', 'maxlength')">50 characters maximum</mat-error>
+                    </mat-form-field>
+
+
+                    <div class="btn">
+                        <button mat-raised-button color="primary" type="button" (click)="addTasktype()"
+                            [disabled]="!taskTypeFrm.valid">Add
+                        </button>
+                        &nbsp;
+                        <button mat-raised-button color="warn" type="button" (click)="back()">Back</button>
+                    </div>
+
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </form>
+
+</div>

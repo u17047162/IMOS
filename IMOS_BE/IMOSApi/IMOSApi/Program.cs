@@ -21,6 +21,10 @@ namespace IMOSApi
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+
                 });
+
+
+    
     }
 }

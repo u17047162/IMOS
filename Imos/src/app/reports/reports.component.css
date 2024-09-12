@@ -1,0 +1,35 @@
+/* mat-grid-tile {
+    background: lightblue;
+  } */
+
+  .example-card {
+    max-width: 400px;
+    margin-bottom: 8px;
+    max-height: 300px;
+  }
+  
+  .example-header-image {
+    background-size: cover;
+  }
+  
+  mat-card {
+    background-color: rgba(166, 182, 182, 0.274);
+    border-radius: 20px;
+  }
+  
+  button{
+    color:teal;
+    
+  }
+  
+  mat-card img {
+    object-fit: cover;
+    /*this makes the image in src fit to the size specified below*/
+    width: 100%;
+    /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+  }

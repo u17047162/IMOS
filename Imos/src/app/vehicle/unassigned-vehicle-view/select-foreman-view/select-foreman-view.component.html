@@ -1,0 +1,28 @@
+<link rel="stylesheet"
+href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<h2 style="margin-left:45% ;">Assign Vehicle to Foreman</h2>
+
+
+<mat-card>
+  <form  [formGroup]="form" >
+    <mat-form-field appearance="outline" class="control-w">
+      <mat-label>Select Foreman</mat-label>
+      <mat-select formControlName="description"  (change)="ChangeTaskstatusID($event)"  >
+        <mat-option *ngFor="let item of foremanData" [value] = "item.id">
+            {{item.name}}
+        </mat-option>
+      </mat-select>
+      <mat-hint>Select Foreman </mat-hint>
+      <mat-error *ngIf="hasError('description', 'required')">Select Foreman</mat-error>
+
+    </mat-form-field>
+  </form>
+
+  <button class="CheckoutBut"  mat-flat-button color="primary" (click)="AssignVehicle()"   [disabled]="!form.valid"> Assgin</button>
+  &nbsp;
+  <button (click)="Cancel()"  class="CheckoutBut" color="warn"  mat-flat-button>
+  Cancel
+  </button>
+
+</mat-card>

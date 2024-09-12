@@ -11,9 +11,7 @@ describe('UpdateVehicleTypeComponent', () => {
       declarations: [ UpdateVehicleTypeComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(UpdateVehicleTypeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

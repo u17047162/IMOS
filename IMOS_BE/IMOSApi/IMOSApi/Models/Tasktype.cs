@@ -12,7 +12,7 @@ namespace IMOSApi.Models
             Tasks = new HashSet<Task>();
         }
 
-        public int Tasktype1 { get; set; }
+        public int TasktypeId { get; set; }
         public string Description { get; set; }
 
         public virtual ICollection<Task> Tasks { get; set; }

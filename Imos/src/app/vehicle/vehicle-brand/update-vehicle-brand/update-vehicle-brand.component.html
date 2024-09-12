@@ -1,0 +1,18 @@
+
+<app-header></app-header>
+<div *ngIf="hide" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success !</strong> Vehicle  Brand Updated Successfully
+    <button mat-button color="warn" (click)="closeAlert()" class="close" data-dismiss="alert" aria-label="Close">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<form class="form" [formGroup]="UpdateBrandFormGroup">
+    <mat-card-content>
+        <mat-form-field class="full-width">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Brand Name" formControlName="Name">
+          </mat-form-field>
+          <mat-error *ngIf="hasError('Name', 'required')"></mat-error>
+    </mat-card-content>
+    <button mat-raised-button color="primary" [disabled]="!UpdateBrandFormGroup.valid" (click)="UpdateBrand(this.data.id)">Update</button>
+</form>

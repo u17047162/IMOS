@@ -1,1 +1,63 @@
-<p>add-vehicle works!</p>
+
+<div class="main">
+    <h1>Add New Vehicle</h1>
+
+    <form [formGroup]="addForm" class="addVehicle">
+        <mat-card>
+            <mat-card-content>
+                <div class="row">
+                    <mat-form-field appearance="standard">
+                        <mat-label> Select Vehicle Type</mat-label>
+                        <mat-select formControlName="vehicletypeId">
+                            <mat-option *ngFor="let type of Vehicletypes" [value]="type.id" (click)="getTypeByMake(type.id)">
+                                {{type.description}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="hasError('vehicletypeId', 'required')">Vehicle Type Name is required
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="standard">
+                        <mat-label> Vehicle Brands </mat-label>
+                        <mat-select formControlName="brandId">
+                            <mat-option *ngFor="let type of VehicleBrandlist" [value]="type.id"  (click)="getModelsByBrand(type.id)">
+                                {{type.name}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="hasError('brandId', 'required')">Vehicle Make is required
+                        </mat-error>
+                    </mat-form-field>
+                   
+                    <mat-form-field appearance="standard">
+                        <mat-label> Vehicle Models</mat-label>
+                        <mat-select formControlName="modelId">
+                            <mat-option *ngFor="let type of VehicleModellist" [value]="type.id">
+                                {{type.name}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="hasError('modelId', 'required')">Vehicle Type Name is required
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="standard">
+                        <mat-label>Date Purchased</mat-label>
+                        <input matInput formControlName="datePurchased" [matDatepicker]="modelDatePurchasedPicker"
+                            (click)="modelDatePurchasedPicker.open()">
+                        <mat-datepicker-toggle matSuffix [for]="modelDatePurchasedPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #modelDatePurchasedPicker color="warn"></mat-datepicker>
+                        <mat-error *ngIf="hasError('datePurchased', 'required')">Date Purchased is required</mat-error>
+                    </mat-form-field>
+
+                    <div class="btn">
+                        <button mat-raised-button color="primary" type="button" (click)="AddVehicle()"
+                            [disabled]="!addForm.valid">Add
+                        </button>
+                        &nbsp;
+                        <button mat-raised-button color="warn" type="button" (click)="back()">Back</button>
+                    </div>
+
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+    </form>
+</div>

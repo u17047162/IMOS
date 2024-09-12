@@ -1,0 +1,27 @@
+<div>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Add Construction Site</mat-card-title>
+    </mat-card-header>
+
+  <mat-card-content>
+
+    <form class="form" [formGroup]="AddFormGroup">
+
+      <mat-form-field class="full-width">
+        <mat-label>Address </mat-label>
+        <input matInput placeholder="Enter the Address" formControlName="Address">
+        <mat-hint>Address </mat-hint>
+        <mat-error *ngIf="hasError('Address', 'required')">Address</mat-error>
+      </mat-form-field>
+      <br>
+
+    </form>
+  </mat-card-content>
+  <button mat-stroked-button color="primary" class="btn-block" [disabled]="!AddFormGroup.valid" (click)="AddSite()">Add  Construction Site</button>
+
+  </mat-card>
+
+
+  </div>

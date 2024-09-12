@@ -1,0 +1,32 @@
+<div>
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Add Urgency Level</mat-card-title>
+      </mat-card-header>
+    
+    <mat-card-content>
+    
+      <form class="form" [formGroup]="AddUrgencylvlFormGroup">
+    
+        <mat-form-field class="full-width">
+          <mat-label>Level </mat-label>
+          <input matInput placeholder="Enter the level" formControlName="level">
+          <mat-hint>Level name</mat-hint>
+          <mat-error *ngIf="hasError('level', 'required')">Level is required</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="full-width">
+          <mat-label>Description</mat-label>
+          <input matInput placeholder="Enter the definition" formControlName="description">
+          <mat-hint>Level Description</mat-hint>
+        </mat-form-field>
+    
+      </form>
+    </mat-card-content>
+    <button mat-stroked-button color="primary" class="btn-block" [disabled]="!AddUrgencylvlFormGroup.valid" (click)="AddUrgencylvl()">Add Urgency lvl</button>
+    
+    </mat-card>
+    
+    
+    </div>

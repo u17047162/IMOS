@@ -1,0 +1,712 @@
+<app-header></app-header>
+
+<link rel="stylesheet"
+    href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<h2 style="margin-left:45% ;">Supplier Help </h2>
+
+<mat-form-field>
+  <mat-label>Search Operation</mat-label>
+  <input matInput  #input  type="text" [(ngModel)]="userFilter.name" placeholder="Subsystem Name">
+
+</mat-form-field>
+
+<br> <br> <br>
+
+
+  <mat-card id="card" >
+    <mat-card-title>
+       Add Supplier
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/supplier/add supplier.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Add New Supplier </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Add Supplier Details</th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>Select Supplier Type</th>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <th>Add Supplier to System</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+          <h2 style="margin-left:45% ;">Confirm </h2>
+          <img mat-card-image  src="./../../../assets/Operations/supplier/confirm add.png" alt="." >
+
+
+        </mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Confirm Add </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th> Confrimation message </th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>  Confrim / cancel operation</th>
+                  </tr>
+
+              </table>
+
+            </div>
+          </div>
+
+
+        </mat-card>
+
+
+      </div>
+
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+<br>
+
+&nbsp;
+
+  <!-- in case you want to show empty message -->
+
+
+
+
+    <mat-card id="card" >
+    <mat-card-title>
+       Update Supplier
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/supplier/update supp.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Update Supplier </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Add Supplier Details</th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>Select Supplier Type  </th>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <th>Update Supplier to System</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+          <h2 style="margin-left:45% ;">Confirm </h2>
+          <img mat-card-image  src="./../../../assets/Operations/supplier/confirm sup update.png" alt="." >
+
+
+        </mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Confirm Update </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th> Confrimation message </th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>  Confrim / cancel operation</th>
+                  </tr>
+
+              </table>
+
+            </div>
+          </div>
+
+
+        </mat-card>
+
+
+      </div>
+
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+<br><br>
+
+&nbsp;&nbsp;
+
+  <!-- in case you want to show empty message -->
+
+
+
+  <mat-card id="card" >
+    <mat-card-title>
+       Search Supplier
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/supplier/search supp.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Search Supplier </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Search Details</th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th> Supplier Details</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+
+&nbsp;&nbsp;
+
+
+
+
+  <!-- in case you want to show empty message -->
+
+
+
+
+
+    <mat-card id="card" >
+    <mat-card-title>
+       Delete Supplier
+    </mat-card-title>
+    &nbsp;
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/supplier/delete supp.png" alt="." >
+
+</mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Delete Supplier </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th>Select Supplier to Delete</th>
+                  </tr>
+              </table>
+
+            </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+        <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+          <h2 style="margin-left:45% ;">Confirm </h2>
+          <img mat-card-image  src="./../../../assets/Operations/supplier/confirm delete.png" alt="." >
+
+
+        </mat-card>
+
+        <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+          <h2 style="margin-left:45% ;">Confirm Delete </h2>
+
+          <div class="tableContainer">
+            <div  class="table table-bordered">
+
+              <table >
+                  <tr>
+                    <th>Number </th>
+                    <th>Description </th>
+                  </tr>
+
+                  <tr>
+                    <th>1</th>
+                    <th> Confrimation message </th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>  Confrim / cancel operation</th>
+                  </tr>
+
+              </table>
+
+            </div>
+          </div>
+
+
+        </mat-card>
+
+
+      </div>
+
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+<br><br>
+
+
+
+
+
+
+&nbsp;&nbsp;
+
+
+<mat-card id="card" >
+  <mat-card-title>
+     Add Supplier Type
+  </mat-card-title>
+  &nbsp;
+  <mat-card-content>
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/supplier/add supp type.png" alt="." >
+
+</mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;">Add New Supplier Type</h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th>Add Supplier Type Details</th>
+                </tr>
+
+                <tr>
+                  <th>2</th>
+                  <th>Add Supplier Type to System</th>
+                </tr>
+            </table>
+
+          </div>
+        </div>
+
+      </mat-card>
+
+    </div>
+
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+        <h2 style="margin-left:45% ;">Confirm </h2>
+        <img mat-card-image  src="./../../../assets/Operations/supplier/confirm sup type update.png" alt="." >
+
+
+      </mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;">Confirm Add </h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th> Confrimation message </th>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <th>  Confrim / cancel operation</th>
+                </tr>
+
+            </table>
+
+          </div>
+        </div>
+
+
+      </mat-card>
+
+
+    </div>
+
+
+
+
+  </mat-card-content>
+
+</mat-card>
+<br>
+
+&nbsp;
+
+<!-- in case you want to show empty message -->
+
+
+
+
+  <mat-card id="card" >
+  <mat-card-title>
+     Update Supplier Type
+  </mat-card-title>
+  &nbsp;
+  <mat-card-content>
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/supplier/update supp type.png" alt="." >
+
+</mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;">Update Supplier Type </h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th>Add Supplier TypeDetails</th>
+                </tr>
+
+                <tr>
+                  <th>2</th>
+                  <th>Update Supplier Type to System</th>
+                </tr>
+            </table>
+
+          </div>
+        </div>
+
+      </mat-card>
+
+    </div>
+
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+        <h2 style="margin-left:45% ;">Confirm </h2>
+        <img mat-card-image  src="./../../../assets/Operations/supplier/confirm sup type update.png" alt="." >
+
+
+      </mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;">Confirm Update </h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th> Confrimation message </th>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <th>  Confrim / cancel operation</th>
+                </tr>
+
+            </table>
+
+          </div>
+        </div>
+
+
+      </mat-card>
+
+
+    </div>
+
+
+
+
+  </mat-card-content>
+
+</mat-card>
+<br><br>
+
+&nbsp;&nbsp;
+
+<!-- in case you want to show empty message -->
+
+
+
+<mat-card id="card" >
+  <mat-card-title>
+     Search Supplier Type
+  </mat-card-title>
+  &nbsp;
+  <mat-card-content>
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/supplier/search supp type.png" alt="." >
+
+</mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;">Search Supplier Type </h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th>Search Details</th>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <th> Supplier Type Details</th>
+                </tr>
+            </table>
+
+          </div>
+        </div>
+
+      </mat-card>
+
+    </div>
+
+
+
+
+
+  </mat-card-content>
+
+</mat-card>
+
+&nbsp;&nbsp;
+
+
+
+
+<!-- in case you want to show empty message -->
+
+
+
+
+
+  <mat-card id="card" >
+  <mat-card-title>
+     Delete Supplier Type
+  </mat-card-title>
+  &nbsp;
+  <mat-card-content>
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+<img mat-card-image  src="./../../../assets/Operations/supplier/delete supp type.png" alt="." >
+
+</mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;">Delete Supplier Type </h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th>Select Supplier Type to Delete</th>
+                </tr>
+            </table>
+
+          </div>
+        </div>
+
+      </mat-card>
+
+    </div>
+
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="50px" >
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="matcard">
+        <h2 style="margin-left:45% ;">Confirm </h2>
+        <img mat-card-image  src="./../../../assets/Operations/supplier/confirm supp type delete.png" alt="." >
+
+
+      </mat-card>
+
+      <mat-card   fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <h2 style="margin-left:45% ;">Confirm Delete </h2>
+
+        <div class="tableContainer">
+          <div  class="table table-bordered">
+
+            <table >
+                <tr>
+                  <th>Number </th>
+                  <th>Description </th>
+                </tr>
+
+                <tr>
+                  <th>1</th>
+                  <th> Confrimation message </th>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <th>  Confrim / cancel operation</th>
+                </tr>
+
+            </table>
+
+          </div>
+        </div>
+
+
+      </mat-card>
+
+
+    </div>
+
+
+
+
+  </mat-card-content>
+
+</mat-card>
+<br><br>
+
+&nbsp;&nbsp;
+
+
+
+
+

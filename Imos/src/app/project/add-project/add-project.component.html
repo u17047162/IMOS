@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+<div class="main">
+
+    <h1>Add Project</h1>
+
+<form [formGroup]="projectfrm" class="addSupplier">
+
+            <div class="row">
+                <mat-form-field class="full-width">
+                    <mat-label>Name</mat-label>
+                    <input matInput  placeholder="Enter Name" #nameInput  formControlName="name">
+                     <!--     <mat-error>Name is required</mat-error> -->
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Select  Construction Site</mat-label>
+                    <mat-select formControlName="constructionsiteId">
+                        <mat-option *ngFor="let type of SiteList" [value]="type.id">
+                            {{type.address}}
+                        </mat-option>
+                      </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <mat-label>Select Request</mat-label>
+                    <mat-select formControlName="initialrequestId">
+                        <mat-option *ngFor="let type of requestList" [value]="type.requestId">
+                            {{type.description}}
+                        </mat-option>
+                      </mat-select>
+                </mat-form-field>
+
+                <mat-card-actions>
+                    <button (click)="addProject()" mat-raised-button color="primary">Add</button>
+                    <button (click)="back()" mat-raised-button color="warn">back</button>
+                </mat-card-actions>
+            </div>
+</form>
+</div>
